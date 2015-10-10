@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="721.0" styleClass="fondox" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CambioDeClaveController">
+   <children>
+      <Pane layoutX="97.0" layoutY="102.0" prefHeight="340.0" prefWidth="590.0" styleClass="fondo_azul">
+         <children>
+            <Label layoutX="189.0" layoutY="15.0" text="Clave Actual " textFill="#fcfcfc">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="190.0" layoutY="100.0" text="Clave Nueva" textFill="#fcf9f9">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="190.0" layoutY="188.0" text="Confirme su Clave" textFill="#f8f6f6">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtClaveActual" layoutX="190.0" layoutY="63.0" prefHeight="31.0" prefWidth="286.0" />
+            <PasswordField fx:id="txtClaveNueva" layoutX="190.0" layoutY="148.0" prefHeight="31.0" prefWidth="286.0" promptText="minimo 8 digitos" />
+            <PasswordField fx:id="txtConfirmacionClave" layoutX="190.0" layoutY="236.0" prefHeight="31.0" prefWidth="286.0" />
+            <Button fx:id="btnGuardar" layoutX="398.0" layoutY="286.0" mnemonicParsing="false" onAction="#guardarClaveNueva" text="Guardar">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblClaveActual" layoutX="191.0" layoutY="41.0" prefHeight="25.0" prefWidth="286.0" textFill="#cb0000">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblClaveNueva" layoutX="191.0" layoutY="126.0" prefHeight="25.0" prefWidth="286.0" textFill="#cb0000">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblConfirmacionClave" layoutX="191.0" layoutY="215.0" prefHeight="25.0" prefWidth="286.0" textFill="#cb0000">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="97.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="307.0" layoutY="33.0" text="Cambio de Clave" textFill="#fcfafa">
+         <font>
+            <Font name="System Italic" size="42.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="627.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/secrecy-icon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnMenuPrincipal" layoutX="560.0" layoutY="464.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="40.0" prefWidth="130.0" text="Menú Principal">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

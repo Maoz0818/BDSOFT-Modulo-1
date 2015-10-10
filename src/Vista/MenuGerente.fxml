@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="721.0" styleClass="fondox" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MenuGerenteController">
+   <children>
+      <Pane layoutX="97.0" layoutY="102.0" prefHeight="340.0" prefWidth="590.0" styleClass="fondo_azul">
+         <children>
+            <Label layoutX="38.0" layoutY="25.0" text="Menu Principal Gerente" textFill="#f8f7f7">
+               <font>
+                  <Font name="System Italic" size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnGestionDeUsuarios" layoutX="119.0" layoutY="98.0" mnemonicParsing="false" onAction="#ingresoGestionDeUsuarios" prefHeight="40.0" prefWidth="227.0" text="Gestion de Usuarios">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../CSS/Gestion%20de%20Usuarios.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnOrdenesDeCompra" layoutX="119.0" layoutY="166.0" mnemonicParsing="false" onAction="#ingresoOrdenesDeCompra" prefHeight="50.0" prefWidth="227.0" text="Ordenes de Compra">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../CSS/orden%20de%20compra.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCambioDeClave" layoutX="119.0" layoutY="237.0" mnemonicParsing="false" onAction="#ingresoCambioDeClave" prefHeight="50.0" prefWidth="227.0" text="Cambio de Clave">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../CSS/secrecy-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="404.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../CSS/Gerente.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="97.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="485.0" layoutY="33.0" text="Bienvenido" textFill="#fffefe">
+         <font>
+            <Font name="System Italic" size="42.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCerrarSesion" layoutX="574.0" layoutY="464.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="40.0" prefWidth="114.0" text="Cerrar Sesión">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1140.0" styleClass="fondo_azul" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.GestionDeUsuariosController">
+   <children>
+      <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="7.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1059.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Gestion%20de%20Usuarios.png" />
+         </image></ImageView>
+      <Label layoutX="681.0" layoutY="22.0" text="Gestión de Usuarios" textFill="#f8f4f4">
+         <font>
+            <Font name="System Italic" size="42.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="78.0" prefHeight="537.0" prefWidth="1105.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Sucursales">
+               <content>
+                  <Pane prefHeight="513.0" prefWidth="1105.0" styleClass="paneles">
+                     <children>
+                        <Separator layoutX="629.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
+                           <effect>
+                              <InnerShadow color="#908888" />
+                           </effect>
+                        </Separator>
+                        <Label layoutX="14.0" layoutY="21.0" text="Busqueda de Usuario" />
+                        <RadioButton fx:id="rbBuscarSucPorNombre" layoutX="47.0" layoutY="61.0" mnemonicParsing="false" text="Nombre de Usuario" />
+                        <TextField fx:id="txtBuscarSucPorNombre" editable="false" layoutX="227.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" />
+                        <RadioButton fx:id="rbBuscarSucPorCodigo" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" text="Codigo de Usuario" />
+                        <TextField fx:id="txtBuscarSucPorCodigo" editable="false" layoutX="227.0" layoutY="104.0" prefHeight="31.0" prefWidth="371.0" />
+                        <Button fx:id="btnLimpiarBusquedaSuc" layoutX="379.0" layoutY="152.0" mnemonicParsing="false" onAction="#limpiarBusquedaSuc" text="Limpiar Busqueda" />
+                        <Button fx:id="btnBuscarSuc" layoutX="533.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscarSuc" text="Buscar" />
+                        <TableView fx:id="tblMostrarSucursales" layoutX="10.0" layoutY="247.0" onMouseClicked="#getSucSeleccionada" prefHeight="232.0" prefWidth="612.0" />
+                        <Label layoutX="657.0" layoutY="15.0" text="Codigo de Usuario" />
+                        <Label layoutX="657.0" layoutY="65.0" text="Nombres" />
+                        <Label layoutX="657.0" layoutY="165.0" text="Nombre Sucursal" />
+                        <Label layoutX="657.0" layoutY="215.0" text="Ciudad Sucursal" />
+                        <Label layoutX="657.0" layoutY="265.0" text="Dirección" />
+                        <Label layoutX="657.0" layoutY="315.0" text="Teléfono" />
+                        <Label layoutX="657.0" layoutY="365.0" text="E-mail" />
+                        <Label layoutX="657.0" layoutY="415.0" text="Estado de Usuario" />
+                        <TextField fx:id="txtCodigoSuc" editable="false" layoutX="814.0" layoutY="15.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtNombreJefeSuc" editable="false" layoutX="814.0" layoutY="65.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtApellidoJefeSuc" editable="false" layoutX="814.0" layoutY="115.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtNombreSuc" editable="false" layoutX="814.0" layoutY="165.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtCiudadSucursal" editable="false" layoutX="814.0" layoutY="215.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtDireccionSuc" editable="false" layoutX="815.0" layoutY="265.0" prefHeight="31.0" prefWidth="264.0" />
+                        <TextField fx:id="txtTelefonoSuc" editable="false" layoutX="815.0" layoutY="315.0" prefHeight="31.0" prefWidth="264.0" />
+                        <TextField fx:id="txtEmailSuc" editable="false" layoutX="814.0" layoutY="365.0" prefHeight="31.0" prefWidth="264.0" />
+                        <RadioButton fx:id="rbEstadoActivoSuc" layoutX="815.0" layoutY="415.0" mnemonicParsing="false" text="Activo" />
+                        <RadioButton fx:id="rbEstadoInactivoSuc" layoutX="947.0" layoutY="415.0" mnemonicParsing="false" text="Inactivo" />
+                        <Button fx:id="btnNuevoJefeSuc" layoutX="759.0" layoutY="457.0" mnemonicParsing="false" onAction="#nuevoJefeSuc" prefHeight="31.0" prefWidth="135.0" text="Nuevo Usuario" />
+                        <Button fx:id="btnModificarJefeSuc" layoutX="912.0" layoutY="457.0" mnemonicParsing="false" onAction="#modificarJefeSuc" text="Modificar" />
+                        <Button fx:id="btnGuardarJefeSuc" layoutX="1014.0" layoutY="457.0" mnemonicParsing="false" onAction="#guardarJefeSuc" text="Guardar" />
+                        <Label fx:id="lblMensajesSuc" layoutX="14.0" layoutY="199.0" prefHeight="27.0" prefWidth="605.0" textFill="#fa0202">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="657.0" layoutY="115.0" text="Apellidos" />
+                     </children></Pane>
+               </content></Tab>
+          <Tab text="Empleados">
+               <content>
+                  <Pane prefHeight="492.0" prefWidth="1105.0" styleClass="paneles">
+                     <children>
+                        <Separator layoutX="629.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
+                           <effect>
+                              <InnerShadow color="#908888" />
+                           </effect>
+                        </Separator>
+                        <RadioButton fx:id="rbBuscarEmpPorNombre" layoutX="47.0" layoutY="61.0" mnemonicParsing="false" text="Nombre de Usuario" />
+                        <TextField fx:id="txtBuscarEmpPorNombre" editable="false" layoutX="227.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" />
+                        <RadioButton fx:id="rbBuscarEmpPorCodigo" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" text="Codigo de Usuario" />
+                        <TextField fx:id="txtBuscarEmpPorCodigo" editable="false" layoutX="227.0" layoutY="104.0" prefHeight="31.0" prefWidth="371.0" />
+                        <Label layoutX="14.0" layoutY="21.0" text="Busqueda de Usuario" />
+                        <Button fx:id="btnLimpiarBusquedaEmp" layoutX="379.0" layoutY="152.0" mnemonicParsing="false" onAction="#limpiarBusquedaEmpleado" text="Limpiar Busqueda" />
+                        <Button fx:id="btnBuscarEmp" layoutX="533.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscarUsuarioEmpleado" text="Buscar" />
+                        <TableView fx:id="tblMostrarUsuarioEmp" layoutX="10.0" layoutY="247.0" onMouseClicked="#getUsuarioEmpSeleccionado" prefHeight="232.0" prefWidth="612.0" />
+                        <Label fx:id="lblMensajeBd" layoutX="10.0" layoutY="199.0" prefHeight="27.0" prefWidth="609.0" textFill="#fa0202">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="657.0" layoutY="15.0" text="Codigo de Empleado" />
+                        <Label layoutX="657.0" layoutY="65.0" text="Nombres " />
+                        <Label layoutX="657.0" layoutY="165.0" text="Cargo" />
+                        <Label layoutX="657.0" layoutY="215.0" text="Teléfono" />
+                        <Label layoutX="657.0" layoutY="265.0" text="E-mail" />
+                        <Label layoutX="657.0" layoutY="315.0" text="Estado de Usuario" />
+                        <TextField fx:id="txtCodigoEmpleado" editable="false" layoutX="814.0" layoutY="15.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtNombreEmpleado" editable="false" layoutX="814.0" layoutY="65.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtApellidoEmpleado" editable="false" layoutX="814.0" layoutY="115.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtCargoEmpleado" editable="false" layoutX="814.0" layoutY="165.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtTelefonoEmpleado" editable="false" layoutX="814.0" layoutY="215.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtEmailEmpleado" editable="false" layoutX="814.0" layoutY="265.0" prefHeight="31.0" prefWidth="265.0" />
+                        <RadioButton fx:id="rbEstadoActivoEmpleado" layoutX="814.0" layoutY="315.0" mnemonicParsing="false" text="Activo" />
+                        <RadioButton fx:id="rbEstadoInactivoEmpleado" layoutX="947.0" layoutY="315.0" mnemonicParsing="false" text="Inactivo" />
+                        <Button fx:id="btnNuevoEmpleado" layoutX="759.0" layoutY="457.0" mnemonicParsing="false" onAction="#nuevoEmpleado" prefHeight="31.0" prefWidth="135.0" text="Nuevo Empleado" />
+                        <Button fx:id="btnModificarEmpleado" layoutX="912.0" layoutY="457.0" mnemonicParsing="false" onAction="#modificarEmpleado" text="Modificar" />
+                        <Button fx:id="btnGuardarEmpleado" layoutX="1014.0" layoutY="457.0" mnemonicParsing="false" onAction="#guardarEmpleado" text="Guardar" />
+                        <Label layoutX="657.0" layoutY="115.0" text="Apellidos" />
+                     </children></Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="btnMenuPrincipal" layoutX="991.0" layoutY="626.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="40.0" prefWidth="128.0" text="Menú Principal">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

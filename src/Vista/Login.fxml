@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="721.0" snapToPixel="false" styleClass="fondox" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.LoginController">
+   <children>
+      <AnchorPane focusTraversable="true" layoutX="97.0" layoutY="102.0" prefHeight="340.0" prefWidth="590.0" styleClass="fondo_azul">
+         <children>
+            <Label layoutX="40.0" layoutY="55.0" text="Correo de Usuario" textFill="#fcf9f9">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="145.0" text="Contraseña" textFill="#fffefe">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCorreoUsuario" layoutX="40.0" layoutY="105.0" prefHeight="31.0" prefWidth="350.0" />
+            <PasswordField fx:id="txtContraseña" layoutX="40.0" layoutY="195.0" prefHeight="31.0" prefWidth="350.0" />
+            <Button fx:id="btnIngresar" layoutX="295.0" layoutY="253.0" mnemonicParsing="false" onAction="#validarIngreso" prefHeight="40.0" prefWidth="95.0" text="Ingresar">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../CSS/secrecy-icon.png" />
+               </image></ImageView>
+            <Label fx:id="lblMensajeCorreo" layoutX="41.0" layoutY="84.0" prefHeight="21.0" prefWidth="350.0" textFill="#cd0000">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMensajeContraseña" layoutX="41.0" layoutY="174.0" prefHeight="21.0" prefWidth="350.0" textFill="#cd0000">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="97.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Logo.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>
