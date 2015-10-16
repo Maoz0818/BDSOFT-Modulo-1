@@ -109,6 +109,7 @@ public class LoginController implements Initializable {
                                 Node node = (Node) event.getSource();
                                 Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
                                 primaryStage.show();
                     
                                 } catch (IOException e) {}
@@ -126,6 +127,7 @@ public class LoginController implements Initializable {
                                 Node node = (Node) event.getSource();
                                 Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
                                 primaryStage.show();
                                 
                                 } catch (IOException e) {}
@@ -143,6 +145,7 @@ public class LoginController implements Initializable {
                                 Node node = (Node) event.getSource();
                                 Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
                                 primaryStage.show();
                                 
                                 } catch (IOException e) {}
@@ -151,7 +154,7 @@ public class LoginController implements Initializable {
                 
             }
             else{
-                   JOptionPane.showMessageDialog(null, "Usuario no registrado favor comunicate con el Gerente");
+                   JOptionPane.showMessageDialog(null, "Usuario no encontrado, si ya estas registrado verifica tus datos y vuelve a intentar\n Y si aun no estas registrado comunicate con el Gerente para tu registro.");
                 }
     }
     

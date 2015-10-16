@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.net.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
@@ -8,89 +9,89 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1140.0" styleClass="fondo_azul" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.GestionDeUsuariosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1343.0" styleClass="fondo_azul" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.GestionDeUsuariosController">
    <children>
       <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="7.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../CSS/Logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1059.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1261.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../CSS/Gestion%20de%20Usuarios.png" />
          </image></ImageView>
-      <Label layoutX="681.0" layoutY="22.0" text="Gestión de Usuarios" textFill="#f8f4f4">
+      <Label layoutX="869.0" layoutY="22.0" text="Gestión de Usuarios" textFill="#f8f4f4">
          <font>
             <Font name="System Italic" size="42.0" />
          </font>
       </Label>
-      <TabPane layoutX="14.0" layoutY="78.0" prefHeight="537.0" prefWidth="1105.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="14.0" layoutY="78.0" prefHeight="537.0" prefWidth="1315.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Sucursales">
                <content>
-                  <Pane prefHeight="508.0" prefWidth="1105.0" styleClass="paneles">
+                  <Pane prefHeight="498.0" prefWidth="1361.0" styleClass="paneles">
                      <children>
-                        <Separator layoutX="629.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
+                        <Separator layoutX="858.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
                            <effect>
                               <InnerShadow color="#908888" />
                            </effect>
                         </Separator>
                         <Label layoutX="14.0" layoutY="21.0" text="Busqueda de Usuario" />
                         <RadioButton fx:id="rbBuscarSucPorNombre" layoutX="47.0" layoutY="61.0" mnemonicParsing="false" onAction="#selecBuscarSucPorNombre" text="Nombre de Usuario" />
-                        <TextField fx:id="txtBuscarSucPorNombre" editable="false" layoutX="227.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" />
+                        <TextField fx:id="txtBuscarSucPorNombre" editable="false" layoutX="227.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" promptText="ingresar solo nombre ó apellido" />
                         <RadioButton fx:id="rbBuscarSucPorCodigo" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" onAction="#selecBuscarSucPorCodigo" text="Codigo de Usuario" />
                         <TextField fx:id="txtBuscarSucPorCodigo" editable="false" layoutX="227.0" layoutY="104.0" prefHeight="31.0" prefWidth="371.0" />
                         <Button fx:id="btnLimpiarBusquedaSuc" layoutX="379.0" layoutY="152.0" mnemonicParsing="false" onAction="#limpiarBusquedaSuc" text="Limpiar Busqueda" />
                         <Button fx:id="btnBuscarSuc" disable="true" layoutX="533.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscarSuc" text="Buscar" />
-                        <TableView fx:id="tblMostrarSucursales" layoutX="10.0" layoutY="247.0" onMouseClicked="#getSucSeleccionada" prefHeight="232.0" prefWidth="612.0" />
-                        <Label layoutX="657.0" layoutY="17.0" text="Codigo de Usuario" />
-                        <Label layoutX="657.0" layoutY="67.0" text="Nombres" />
-                        <Label layoutX="657.0" layoutY="167.0" text="Nombre Sucursal" />
-                        <Label layoutX="657.0" layoutY="217.0" text="Ciudad Sucursal" />
-                        <Label layoutX="657.0" layoutY="267.0" text="Dirección" />
-                        <Label layoutX="657.0" layoutY="317.0" text="Teléfono" />
-                        <Label layoutX="657.0" layoutY="367.0" text="E-mail" />
-                        <Label layoutX="657.0" layoutY="415.0" text="Estado de Usuario" />
-                        <TextField fx:id="txtCodigoSuc" editable="false" layoutX="814.0" layoutY="17.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtNombreJefeSuc" editable="false" layoutX="814.0" layoutY="67.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtApellidoJefeSuc" editable="false" layoutX="814.0" layoutY="117.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtNombreSuc" editable="false" layoutX="814.0" layoutY="167.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtCiudadSucursal" editable="false" layoutX="814.0" layoutY="217.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtDireccionSuc" editable="false" layoutX="815.0" layoutY="267.0" prefHeight="31.0" prefWidth="264.0" />
-                        <TextField fx:id="txtTelefonoSuc" editable="false" layoutX="815.0" layoutY="317.0" prefHeight="31.0" prefWidth="264.0" />
-                        <TextField fx:id="txtEmailSuc" editable="false" layoutX="814.0" layoutY="367.0" prefHeight="31.0" prefWidth="264.0" />
-                        <RadioButton fx:id="rbEstadoActivoSuc" disable="true" layoutX="815.0" layoutY="415.0" mnemonicParsing="false" onAction="#selecSucActivo" text="Activo" />
-                        <RadioButton fx:id="rbEstadoInactivoSuc" disable="true" layoutX="947.0" layoutY="415.0" mnemonicParsing="false" onAction="#selecSucInactivo" text="Inactivo" />
-                        <Button fx:id="btnNuevoJefeSuc" disable="true" layoutX="759.0" layoutY="457.0" mnemonicParsing="false" onAction="#nuevoJefeSuc" prefHeight="31.0" prefWidth="135.0" text="Nuevo Usuario" />
-                        <Button fx:id="btnModificarJefeSuc" disable="true" layoutX="912.0" layoutY="457.0" mnemonicParsing="false" onAction="#modificarJefeSuc" text="Modificar" />
-                        <Button fx:id="btnGuardarJefeSuc" disable="true" layoutX="1014.0" layoutY="457.0" mnemonicParsing="false" onAction="#guardarJefeSuc" text="Guardar" />
+                        <TableView fx:id="tblMostrarSucursales" layoutX="10.0" layoutY="247.0" onMouseClicked="#getSucSeleccionada" prefHeight="232.0" prefWidth="840.0" />
+                        <Label layoutX="880.0" layoutY="17.0" text="Codigo de Usuario" />
+                        <Label layoutX="880.0" layoutY="67.0" text="Nombres" />
+                        <Label layoutX="880.0" layoutY="167.0" text="Nombre Sucursal" />
+                        <Label layoutX="880.0" layoutY="217.0" text="Ciudad Sucursal" />
+                        <Label layoutX="880.0" layoutY="267.0" text="Dirección" />
+                        <Label layoutX="880.0" layoutY="317.0" text="Teléfono" />
+                        <Label layoutX="880.0" layoutY="367.0" text="E-mail" />
+                        <Label layoutX="880.0" layoutY="415.0" text="Estado de Usuario" />
+                        <TextField fx:id="txtCodigoSuc" editable="false" layoutX="1030.0" layoutY="17.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtNombreJefeSuc" editable="false" layoutX="1030.0" layoutY="67.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtApellidoJefeSuc" editable="false" layoutX="1030.0" layoutY="117.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtNombreSuc" editable="false" layoutX="1030.0" layoutY="167.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtCiudadSucursal" editable="false" layoutX="1030.0" layoutY="217.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtDireccionSuc" editable="false" layoutX="1030.0" layoutY="267.0" prefHeight="31.0" prefWidth="264.0" />
+                        <TextField fx:id="txtTelefonoSuc" editable="false" layoutX="1030.0" layoutY="317.0" prefHeight="31.0" prefWidth="264.0" />
+                        <TextField fx:id="txtEmailSuc" editable="false" layoutX="1030.0" layoutY="367.0" prefHeight="31.0" prefWidth="264.0" />
+                        <RadioButton fx:id="rbEstadoActivoSuc" disable="true" layoutX="1053.0" layoutY="415.0" mnemonicParsing="false" onAction="#selecSucActivo" text="Activo" />
+                        <RadioButton fx:id="rbEstadoInactivoSuc" disable="true" layoutX="1170.0" layoutY="415.0" mnemonicParsing="false" onAction="#selecSucInactivo" text="Inactivo" />
+                        <Button fx:id="btnNuevoJefeSuc" disable="true" layoutX="890.0" layoutY="457.0" mnemonicParsing="false" onAction="#nuevoJefeSuc" prefHeight="31.0" prefWidth="135.0" text="Nuevo Usuario" />
+                        <Button fx:id="btnModificarJefeSuc" disable="true" layoutX="1080.0" layoutY="457.0" mnemonicParsing="false" onAction="#modificarJefeSuc" text="Modificar" />
+                        <Button fx:id="btnGuardarJefeSuc" disable="true" layoutX="1221.0" layoutY="457.0" mnemonicParsing="false" onAction="#guardarJefeSuc" text="Guardar" />
                         <Label fx:id="lblMensajesSuc" layoutX="14.0" layoutY="199.0" prefHeight="27.0" prefWidth="605.0" textFill="#fa0202">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="657.0" layoutY="117.0" text="Apellidos" />
-                        <Label fx:id="lblMensajeCodigoSuc" layoutX="815.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label layoutX="880.0" layoutY="117.0" text="Apellidos" />
+                        <Label fx:id="lblMensajeCodigoSuc" layoutX="1030.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeNombreSuc" layoutX="815.0" layoutY="50.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeNombreSuc" layoutX="1030.0" layoutY="50.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeApellidoSuc" layoutX="815.0" layoutY="100.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeApellidoSuc" layoutX="1030.0" layoutY="100.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeNomSucursal" layoutX="815.0" layoutY="150.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeNomSucursal" layoutX="1030.0" layoutY="150.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeCiudadSuc" layoutX="815.0" layoutY="200.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeCiudadSuc" layoutX="1030.0" layoutY="200.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -100,22 +101,22 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeTelefSuc" layoutX="815.0" layoutY="300.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeTelefSuc" layoutX="1030.0" layoutY="300.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeEmailSuc" layoutX="815.0" layoutY="350.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeEmailSuc" layoutX="1030.0" layoutY="350.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeEstadoSuc" layoutX="815.0" layoutY="398.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeEstadoSuc" layoutX="1030.0" layoutY="398.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeDireccSUc" layoutX="815.0" layoutY="250.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeDireccSUc" layoutX="1030.0" layoutY="250.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -126,83 +127,83 @@
                <content>
                   <Pane prefHeight="492.0" prefWidth="1105.0" styleClass="paneles">
                      <children>
-                        <Separator layoutX="629.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
+                        <Separator layoutX="858.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
                            <effect>
                               <InnerShadow color="#908888" />
                            </effect>
                         </Separator>
                         <RadioButton fx:id="rbBuscarEmpPorNombre" layoutX="47.0" layoutY="61.0" mnemonicParsing="false" onAction="#selecBuscarEmpPorNombre" text="Nombre de Usuario" />
-                        <TextField fx:id="txtBuscarEmpPorNombre" editable="false" layoutX="227.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" />
+                        <TextField fx:id="txtBuscarEmpPorNombre" editable="false" layoutX="227.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" promptText="ingresar solo nombre ó apellido" />
                         <RadioButton fx:id="rbBuscarEmpPorCodigo" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" onAction="#selecBuscarEmpPorCodigo" text="Codigo de Usuario" />
                         <TextField fx:id="txtBuscarEmpPorCodigo" editable="false" layoutX="227.0" layoutY="104.0" prefHeight="31.0" prefWidth="371.0" />
                         <Label layoutX="14.0" layoutY="21.0" text="Busqueda de Usuario" />
                         <Button fx:id="btnLimpiarBusquedaEmp" layoutX="379.0" layoutY="152.0" mnemonicParsing="false" onAction="#limpiarBusquedaEmpleado" text="Limpiar Busqueda" />
                         <Button fx:id="btnBuscarEmp" disable="true" layoutX="533.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscarUsuarioEmpleado" text="Buscar" />
-                        <TableView fx:id="tblMostrarUsuarioEmp" layoutX="10.0" layoutY="247.0" onMouseClicked="#getUsuarioEmpSeleccionado" prefHeight="232.0" prefWidth="612.0" />
+                        <TableView fx:id="tblMostrarUsuarioEmp" layoutX="10.0" layoutY="247.0" onMouseClicked="#getUsuarioEmpSeleccionado" prefHeight="232.0" prefWidth="840.0" />
                         <Label fx:id="lblMensajeBd" layoutX="10.0" layoutY="199.0" prefHeight="27.0" prefWidth="609.0" textFill="#fa0202">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="657.0" layoutY="17.0" text="Codigo de Empleado" />
-                        <Label layoutX="657.0" layoutY="67.0" text="Nombres " />
-                        <Label layoutX="657.0" layoutY="167.0" text="Cargo" />
-                        <Label layoutX="657.0" layoutY="217.0" text="Teléfono" />
-                        <Label layoutX="657.0" layoutY="267.0" text="E-mail" />
-                        <Label layoutX="657.0" layoutY="315.0" text="Estado de Usuario" />
-                        <TextField fx:id="txtCodigoEmpleado" editable="false" layoutX="814.0" layoutY="17.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtNombreEmpleado" editable="false" layoutX="814.0" layoutY="67.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtApellidoEmpleado" editable="false" layoutX="814.0" layoutY="117.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtCargoEmpleado" editable="false" layoutX="814.0" layoutY="167.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtTelefonoEmpleado" editable="false" layoutX="814.0" layoutY="217.0" prefHeight="31.0" prefWidth="265.0" />
-                        <TextField fx:id="txtEmailEmpleado" editable="false" layoutX="814.0" layoutY="267.0" prefHeight="31.0" prefWidth="265.0" />
-                        <RadioButton fx:id="rbEstadoActivoEmpleado" disable="true" layoutX="814.0" layoutY="315.0" mnemonicParsing="false" onAction="#selecEmpActivo" text="Activo" />
-                        <RadioButton fx:id="rbEstadoInactivoEmpleado" disable="true" layoutX="947.0" layoutY="315.0" mnemonicParsing="false" onAction="#selecEmpInactivo" text="Inactivo" />
-                        <Button fx:id="btnNuevoEmpleado" disable="true" layoutX="759.0" layoutY="457.0" mnemonicParsing="false" onAction="#nuevoEmpleado" prefHeight="31.0" prefWidth="135.0" text="Nuevo Empleado" />
-                        <Button fx:id="btnModificarEmpleado" disable="true" layoutX="912.0" layoutY="457.0" mnemonicParsing="false" onAction="#modificarEmpleado" text="Modificar" />
-                        <Button fx:id="btnGuardarEmpleado" disable="true" layoutX="1014.0" layoutY="457.0" mnemonicParsing="false" onAction="#guardarEmpleado" text="Guardar" />
-                        <Label layoutX="657.0" layoutY="117.0" text="Apellidos" />
-                        <Label fx:id="lblMensajeCodigoEmp" layoutX="814.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label layoutX="880.0" layoutY="17.0" text="Codigo de Empleado" />
+                        <Label layoutX="880.0" layoutY="67.0" text="Nombres " />
+                        <Label layoutX="880.0" layoutY="167.0" text="Cargo" />
+                        <Label layoutX="880.0" layoutY="217.0" text="Teléfono" />
+                        <Label layoutX="880.0" layoutY="267.0" text="E-mail" />
+                        <Label layoutX="880.0" layoutY="315.0" text="Estado de Usuario" />
+                        <TextField fx:id="txtCodigoEmpleado" editable="false" layoutX="1030.0" layoutY="17.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtNombreEmpleado" editable="false" layoutX="1030.0" layoutY="67.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtApellidoEmpleado" editable="false" layoutX="1030.0" layoutY="117.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtTelefonoEmpleado" editable="false" layoutX="1030.0" layoutY="217.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtEmailEmpleado" editable="false" layoutX="1030.0" layoutY="267.0" prefHeight="31.0" prefWidth="265.0" />
+                        <RadioButton fx:id="rbEstadoActivoEmpleado" disable="true" layoutX="1053.0" layoutY="315.0" mnemonicParsing="false" onAction="#selecEmpActivo" text="Activo" />
+                        <RadioButton fx:id="rbEstadoInactivoEmpleado" disable="true" layoutX="1170.0" layoutY="315.0" mnemonicParsing="false" onAction="#selecEmpInactivo" text="Inactivo" />
+                        <Button fx:id="btnNuevoEmpleado" disable="true" layoutX="890.0" layoutY="457.0" mnemonicParsing="false" onAction="#nuevoEmpleado" prefHeight="31.0" prefWidth="135.0" text="Nuevo Empleado" />
+                        <Button fx:id="btnModificarEmpleado" disable="true" layoutX="1080.0" layoutY="457.0" mnemonicParsing="false" onAction="#modificarEmpleado" text="Modificar" />
+                        <Button fx:id="btnGuardarEmpleado" disable="true" layoutX="1221.0" layoutY="457.0" mnemonicParsing="false" onAction="#guardarEmpleado" text="Guardar" />
+                        <Label layoutX="880.0" layoutY="117.0" text="Apellidos" />
+                        <Label fx:id="lblMensajeCodigoEmp" layoutX="1030.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeNombreEmp" layoutX="814.0" layoutY="50.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeNombreEmp" layoutX="1030.0" layoutY="50.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeApellidoEmp" layoutX="814.0" layoutY="100.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeApellidoEmp" layoutX="1030.0" layoutY="100.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeCargoEmp" layoutX="814.0" layoutY="150.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeCargoEmp" layoutX="1030.0" layoutY="150.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeTelefonoEmp" layoutX="814.0" layoutY="200.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeTelefonoEmp" layoutX="1030.0" layoutY="200.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeEmailEmp" layoutX="814.0" layoutY="250.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeEmailEmp" layoutX="1030.0" layoutY="250.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblMensajeEstadoEmp" layoutX="814.0" layoutY="297.0" prefHeight="21.0" prefWidth="264.0" textFill="#f70505">
+                        <Label fx:id="lblMensajeEstadoEmp" layoutX="1030.0" layoutY="297.0" prefHeight="21.0" prefWidth="264.0" textFill="#f70505">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
+                        <ComboBox fx:id="cbCargo" layoutX="1030.0" layoutY="167.0" prefHeight="31.0" prefWidth="263.0" promptText="Seleccionar" />
                      </children></Pane>
                </content>
             </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="btnMenuPrincipal" layoutX="991.0" layoutY="626.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="40.0" prefWidth="128.0" text="Menú Principal">
+      <Button fx:id="btnMenuPrincipal" layoutX="1200.0" layoutY="626.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="40.0" prefWidth="128.0" text="Menú Principal">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>

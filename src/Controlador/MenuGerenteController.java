@@ -44,8 +44,9 @@ public class MenuGerenteController implements Initializable {
             Node node = (Node) event.getSource();
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
             primaryStage.show();
-                    
+                                
             } catch (IOException e) {}
     }
 
@@ -66,6 +67,7 @@ public class MenuGerenteController implements Initializable {
             Node node = (Node) event.getSource();
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
             primaryStage.show();
                     
             } catch (IOException e) {}
@@ -84,6 +86,7 @@ public class MenuGerenteController implements Initializable {
             Node node = (Node) event.getSource();
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
             primaryStage.show();
                     
             } catch (IOException e) {}

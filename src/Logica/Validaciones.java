@@ -3,7 +3,6 @@ package Logica;
 //Importaciones
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
 //Clase que se encarga de realizar validaciones de campos
 public class Validaciones {
@@ -50,11 +49,11 @@ public class Validaciones {
     // Validar que solo reciba letras
     public boolean soloLetras(String datos) {
         
-        patron = Pattern.compile("^[a-zA-Z]*$");
+        //patron = Pattern.compile("^[a-zA-Z]*$");
+        patron = Pattern.compile("[a-zA-Z]");
         validar = patron.matcher(datos); 
         if (!datos.isEmpty()) {
-            if (!validar.find()) {
-                JOptionPane.showMessageDialog(null, "Solo se admiten letras");
+            if (validar.find()) {
                 return false;
             }
         }
@@ -62,13 +61,12 @@ public class Validaciones {
     }
     
     // Validar que solo reciba numeros
-    public boolean soloNumeros(String datos, String nombreCampo) {
+    public boolean soloNumeros(String datos) {
         
         patron = Pattern.compile("^[0-9]*$");
         validar = patron.matcher(datos); 
         if (!datos.isEmpty()) {
-            if (!validar.find()) {
-                JOptionPane.showMessageDialog(null, "En el campo "+nombreCampo+" solo se admiten numeros");
+            if (validar.find()) {
                 return false;
             }
         }
