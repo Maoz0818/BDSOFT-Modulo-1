@@ -3,25 +3,27 @@ package Logica;
 public class Usuario {
     //Declaracion de variables
     private int codigoUsuario;
-    private int estado;
     private String nombres;
     private String apellidos; 
     private int telefono; 
     private String e_mail;
-    private String contraseña;
+    private int estado;
+    private String clave;
+    private String cargo;
+    private final String cadena = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     
     // Constructor vacio
     public Usuario(){}
     
     //Constructor con atributos
-    public Usuario(int codigoUsuario, int estado, String nombres, String apellidos, int telefono, String e_mail, String contraseña) {
-        this.codigoUsuario = codigoUsuario;
+    public Usuario(int estado, String nombres, String apellidos, String cargo, int telefono, String e_mail, String clave) {
         this.estado = estado;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.e_mail = e_mail;
-        this.contraseña = contraseña;
+        this.cargo = cargo;
+        this.clave = clave;
     }
     
     //Metodos get
@@ -49,8 +51,12 @@ public class Usuario {
         return e_mail;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getClave() {
+        return clave;
+    }
+    
+    public String getCargo() {
+        return cargo;
     }
     
     //Metodos set
@@ -78,8 +84,25 @@ public class Usuario {
         this.e_mail = e_mail;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
     
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+    
+       
+    public String GenerarClave(){
+        
+        int longitudCad = cadena.length(); 
+        String claveGenerada = "";
+        String caracter = "";
+    
+        for (int i = 0; i < 8; i++) {
+        claveGenerada+=(cadena.charAt((int)(Math.random() * cadena.length())));
+	}
+    
+        return claveGenerada;
+   } 
 }

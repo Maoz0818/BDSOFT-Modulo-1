@@ -9,10 +9,11 @@ public class JefeSucursal extends Usuario{
     public JefeSucursal(){}
     
     //Constructor con atributos
-    public JefeSucursal(int codigoJefe, int codigoUsuario, int estado, String nombres, String apellidos, int telefono, String e_mail, String contraseña) {
-        super(codigoUsuario, estado, nombres, apellidos, telefono, e_mail, contraseña);
-        this.codigoJefe = codigoJefe;
+    public JefeSucursal( int estado, String nombres, String apellidos, String cargo, int telefono, String e_mail,String clave) {
+        super(estado, nombres, apellidos, cargo, telefono, e_mail, clave);
     }
+    
+    //Constructor solo con codigo de usuario
     
     //Metodos get
     public int getCodigoJefe() {

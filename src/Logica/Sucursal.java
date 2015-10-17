@@ -7,13 +7,13 @@ public class Sucursal {
     private String nombre;
     private String ciudad;
     private String direccion;
-    
+    private int codigoJefe;
     //Constructor vacio
     public Sucursal(){}
     
     //Constructor con atributos
-    public Sucursal(int codigoSucursal, String nombre, String ciudad, String direccion) {
-        this.codigoSucursal = codigoSucursal;
+    public Sucursal(int codigoJefe, String nombre, String ciudad, String direccion) {
+        this.codigoJefe = codigoJefe;
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.direccion = direccion;
@@ -36,6 +36,10 @@ public class Sucursal {
         return direccion;
     }
     
+    public int getCodigoJefe() {
+        return codigoJefe;
+    }
+    
     //Metodos set
     public void setCodigoSucursal(int codigoSucursal) {
         this.codigoSucursal = codigoSucursal;
@@ -51,6 +55,10 @@ public class Sucursal {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+    
+    public void setCodigoJefe(int codigoJefe) {
+        this.codigoJefe = codigoJefe;
     }
     
 }

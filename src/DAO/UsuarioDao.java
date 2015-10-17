@@ -1,6 +1,7 @@
 package DAO;
 
 //Importaciones necesarias
+import Logica.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -93,6 +94,75 @@ public class UsuarioDao {
             System.out.println("Error" + e.getMessage());
         }
         return resuladoUsuario;
+    }
+    
+    // SQL para registrar un nuevo usuario
+    public PreparedStatement nuevoUsuario(Usuario nuevoUsuario){
+        
+        PreparedStatement estado = null;
+                
+        try {   conexion = ConexionDao.Conectar();
+            String sql = "INSERT INTO USUARIOS"
+                    + " (ESTADOID, NOMBRES, APELLIDOS, CARGO, TELEFONO, E_MAIL, CLAVE) "
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+            
+            estado = conexion.prepareStatement(sql);
+         
+            estado.setInt(1, nuevoUsuario.getEstado());
+            estado.setString(2, nuevoUsuario.getNombres());
+            estado.setString(3, nuevoUsuario.getApellidos());
+            estado.setString(4, nuevoUsuario.getCargo());
+            estado.setInt(5, nuevoUsuario.getTelefono());
+            estado.setString(6, nuevoUsuario.getE_mail());
+            estado.setString(7, nuevoUsuario.getClave());
+            
+        } catch (SQLException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+        
+        return estado;
+    }
+    
+    // SQL para traer los datos del registro seleccionado
+    public ResultSet datosParaFormulario(String dato){
+        
+        ResultSet resuladoDatosParaFormulario = null;
+    
+        try {  conexion = ConexionDao.Conectar();
+            String sql = "SELECT  USU.NOMBRES NOMBRE_USUARIO, USU.APELLIDOS, SUC.NOMBRE NOMBRE_SUCURSAL, SUC.CIUDAD, SUC.DIRECCION, USU.TELEFONO, USU.E_MAIL, USU.ESTADOID\n" +
+                         "FROM USUARIOS USU INNER JOIN JEFE_SUCURSAL JSUC ON USU.USUARIOID = JSUC.USUARIOID\n" +
+                         "INNER JOIN SUCURSALES SUC ON JSUC.JEFEID = SUC.JEFEID\n" +
+                         "WHERE USU.USUARIOID = '"+dato+"'";
+            
+            resuladoDatosParaFormulario = conexion.createStatement().executeQuery(sql);
+                    
+        } catch (SQLException e) {
+            System.out.println("Error" + e.getMessage());
+        }
+        return resuladoDatosParaFormulario;
+    }
+    
+    // SQL para modificar usuario
+    public PreparedStatement modificarUsuario(Usuario modificarUsuario){
+        
+        PreparedStatement estado = null;
+                
+        try {  conexion = ConexionDao.Conectar();
+            String sql = "UPDATE USUARIOS "
+                    + " SET  ESTADOID = ?, NOMBRES = ?, APELLIDOS = ?, TELEFONO = ?, E_MAIL = ?"
+                    + " WHERE USUARIOID = " + modificarUsuario.getCodigoUsuario();
+            
+            estado = conexion.prepareStatement(sql);
+            estado.setInt(1, modificarUsuario.getEstado());
+            estado.setString(2, modificarUsuario.getNombres());
+            estado.setString(3, modificarUsuario.getApellidos());
+            estado.setInt(4, modificarUsuario.getTelefono());
+            estado.setString(5, modificarUsuario.getE_mail());
+        } catch (SQLException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+        
+        return estado;
     }
     
 }
