@@ -44,6 +44,12 @@ public class CambioDeClaveController implements Initializable {
     @FXML
     private Button btnMenuPrincipal;
     
+    private String claveActual;
+    
+    ResultSet resultadoConsulta;
+    
+    String cargo;
+    
     private final Validaciones validacion = new Validaciones();
     
     //Objeto DAO
@@ -70,11 +76,11 @@ public class CambioDeClaveController implements Initializable {
         
         //Declaracion de variables para la validacion
         String claveNueva = txtClaveNueva.getText();
-        String claveActual = txtClaveActual.getText();
+        claveActual = txtClaveActual.getText();
 
         //Booleano para validar que si se encontro la clave actual ingresada
         boolean existeClave = usuariodao.validarClave(claveActual).next();
-        ResultSet resultadoConsulta = usuariodao.validarClave(claveActual);
+        resultadoConsulta = usuariodao.validarClave(claveActual);
                 
         //Si la clave actual es correcta
         if (!existeClave) {           
@@ -118,22 +124,68 @@ public class CambioDeClaveController implements Initializable {
     }
 
     @FXML
-    private void volverMenuPrincipal(ActionEvent event) {
+    private void volverMenuPrincipal(ActionEvent event) throws SQLException {
         
-        try {
-            //Cargamos la scene
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Principal.class.getResource("MenuGerente.fxml"));
-            AnchorPane Gerente = (AnchorPane) loader.load();
+        //While para recorrer el ResultSet y obtener el cargo del usuario
+        while(resultadoConsulta.next()){
+            cargo = resultadoConsulta.getString("cargo").trim();
+        }
+        
+        
+        switch(cargo){
+                    case "Gerente":
+                                try {
+                                //Cargamos la scene
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(Principal.class.getResource("MenuGerente.fxml"));
+                                AnchorPane Gerente = (AnchorPane) loader.load();
 
-            //Agregamos a la ventana
-            Scene scene = new Scene(Gerente);
-            Node node = (Node) event.getSource();
-            Stage primaryStage = (Stage) node.getScene().getWindow();
-            primaryStage.setScene(scene);
-            primaryStage.centerOnScreen();
-            primaryStage.show();
+                                //Agregamos a la ventana
+                                Scene scene = new Scene(Gerente);
+                                Node node = (Node) event.getSource();
+                                Stage primaryStage = (Stage) node.getScene().getWindow();
+                                primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
+                                primaryStage.show();
                     
-            } catch (IOException e) {}
+                                } catch (IOException e) {}
+                        break;
+                        
+                        case "Jefe de Bodega":
+                                try {
+                                //Cargamos la scene
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(Principal.class.getResource("MenuJefeDeBodega.fxml"));
+                                AnchorPane JefeBodega = (AnchorPane) loader.load();
+                                
+                                //Agregamos a la ventana
+                                Scene scene = new Scene(JefeBodega);
+                                Node node = (Node) event.getSource();
+                                Stage primaryStage = (Stage) node.getScene().getWindow();
+                                primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
+                                primaryStage.show();
+                                
+                                } catch (IOException e) {}
+                        break;
+                            
+                        case "Jefe de Sucursal":
+                                try {
+                                //Cargamos la scene
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(Principal.class.getResource("MenuJefeDeSucursal.fxml"));
+                                AnchorPane JefeSucursal = (AnchorPane) loader.load();
+                                
+                                //Agregamos a la ventana
+                                Scene scene = new Scene(JefeSucursal);
+                                Node node = (Node) event.getSource();
+                                Stage primaryStage = (Stage) node.getScene().getWindow();
+                                primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
+                                primaryStage.show();
+                                
+                                } catch (IOException e) {}
+                        break;
+                }
     } 
 }

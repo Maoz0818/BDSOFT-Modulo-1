@@ -16,7 +16,7 @@ public class UsuarioDao {
         ResultSet resuladoConsultaClave = null;
     
         try {  conexion = ConexionDao.Conectar();
-            String sql = "SELECT CLAVE FROM "
+            String sql = "SELECT CLAVE, CARGO FROM "
                     + " USUARIOS WHERE "
                     + " CLAVE = '"+clave+"'";
             resuladoConsultaClave = conexion.createStatement().executeQuery(sql);
