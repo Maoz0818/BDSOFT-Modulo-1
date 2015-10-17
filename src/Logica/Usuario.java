@@ -5,7 +5,7 @@ public class Usuario {
     private int codigoUsuario;
     private String nombres;
     private String apellidos; 
-    private int telefono; 
+    private String telefono; 
     private String e_mail;
     private int estado;
     private String clave;
@@ -16,7 +16,7 @@ public class Usuario {
     public Usuario(){}
     
     //Constructor con atributos
-    public Usuario(int estado, String nombres, String apellidos, String cargo, int telefono, String e_mail, String clave) {
+    public Usuario(int estado, String nombres, String apellidos, String cargo, String telefono, String e_mail, String clave) {
         this.estado = estado;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -43,7 +43,7 @@ public class Usuario {
         return apellidos;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -76,7 +76,7 @@ public class Usuario {
         this.apellidos = apellidos;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

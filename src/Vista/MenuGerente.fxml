@@ -27,7 +27,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnOrdenesDeCompra" layoutX="119.0" layoutY="166.0" mnemonicParsing="false" onAction="#ingresoOrdenesDeCompra" prefHeight="50.0" prefWidth="227.0" text="Ordenes de Compra">
+            <Button fx:id="btnOrdenesDeCompra" disable="true" layoutX="119.0" layoutY="166.0" mnemonicParsing="false" onAction="#ingresoOrdenesDeCompra" prefHeight="50.0" prefWidth="227.0" text="Ordenes de Compra">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

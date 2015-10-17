@@ -28,7 +28,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
@@ -49,7 +49,6 @@ public class GestionDeUsuariosController implements Initializable {
     @FXML    private Button btnLimpiarBusquedaSuc;
     @FXML    private Button btnBuscarSuc;
     @FXML    private TableView tblMostrarSucursales;
-    @FXML    private TextField txtCodigoSuc;
     @FXML    private TextField txtNombreJefeSuc;
     @FXML    private TextField txtApellidoJefeSuc;
     @FXML    private TextField txtNombreSuc;
@@ -79,10 +78,10 @@ public class GestionDeUsuariosController implements Initializable {
     @FXML    private Button btnBuscarEmp;
     @FXML    private TableView tblMostrarUsuarioEmp;
     @FXML    private Label lblMensajeBd;
-    @FXML    private TextField txtCodigoEmpleado;
     @FXML    private TextField txtNombreEmpleado;
     @FXML    private TextField txtApellidoEmpleado;
-    @FXML    private ComboBox cbCargo;
+    @FXML    private CheckBox ckbGerente;
+    @FXML    private CheckBox ckbJefeDeBodega;
     @FXML    private TextField txtTelefonoEmpleado;
     @FXML    private TextField txtEmailEmpleado;
     @FXML    private RadioButton rbEstadoActivoEmpleado;
@@ -101,9 +100,15 @@ public class GestionDeUsuariosController implements Initializable {
     
     private int jefeId;
     
+    private int cargoEmp;
+    
     private int estadoUsuario;
     
     private String codigoUsuario;
+    
+    private String codigoEmpleado;
+    
+    private String cargoEmpleado;
     
     private final Validaciones validacion = new Validaciones();
     //objetos clave
@@ -119,11 +124,10 @@ public class GestionDeUsuariosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Se llenan los items del combobox 
-        cbCargo.getItems().add("Gerente");
-        cbCargo.getItems().add("Jefe de Bodega");
+        
     }    
-
+    
+    // METODO ENCARGADO DE LIMPIAR LA BUSQUEDA DE USUARIO JEFE SUCURSAL
     @FXML
     private void limpiarBusquedaSuc(ActionEvent event) {
         tblMostrarSucursales.getColumns().clear();
@@ -139,7 +143,8 @@ public class GestionDeUsuariosController implements Initializable {
         lblMensajesSuc.setText("");
         
     }
-
+    
+    // METODO ENCARGADO DE BUSCAR USUARIO SUCURSAL
     @FXML
     private void buscarSuc(ActionEvent event) throws SQLException {
         
@@ -209,7 +214,8 @@ public class GestionDeUsuariosController implements Initializable {
         }
         
     }
-
+    
+    // METODO ENCARGADO DE DEVOLVER EL ITEM SELECCIONADO EN LA TABLA JEFESUCURSAL
     @FXML
     private void getSucSeleccionada(MouseEvent event) {
         
@@ -234,21 +240,26 @@ public class GestionDeUsuariosController implements Initializable {
                     Matcher m2 = p.matcher(dosDigitos);
                     
                     if (m5.find()) {
+                        limpiarCamposSuc();
                         cargarDatosSucursalAlFormulario(cincoDigitos);
                         codigoUsuario = cincoDigitos;
                     } else {
                         if (m4.find()) {
+                            limpiarCamposSuc();
                             cargarDatosSucursalAlFormulario(cuatroDigitos);
                             codigoUsuario = cuatroDigitos;
                         } else {
                             if (m3.find()) {
+                                limpiarCamposSuc();
                                 cargarDatosSucursalAlFormulario(tresDigitos);
                                 codigoUsuario = tresDigitos;
                             } else {
                                 if (m2.find()) {
+                                    limpiarCamposSuc();
                                     cargarDatosSucursalAlFormulario(dosDigitos);
                                     codigoUsuario = dosDigitos;
                                 } else {
+                                    limpiarCamposSuc();
                                     cargarDatosSucursalAlFormulario(unDigitos);
                                     codigoUsuario = unDigitos;
                                 }
@@ -262,6 +273,7 @@ public class GestionDeUsuariosController implements Initializable {
         btnModificarJefeSuc.setDisable(false);
     }
     
+    // METODO ENCARGADO DE CARGAR LOS DATOS AL FORMULARIO SEGUN EL ITEM SELECCIONADO
     private void cargarDatosSucursalAlFormulario(String dato){
         
         ResultSet cargaDatosParaFormulario = usuarioDao.datosParaFormulario(dato);
@@ -299,9 +311,11 @@ public class GestionDeUsuariosController implements Initializable {
         txtEmailSuc.setEditable(true);
         btnModificarJefeSuc.setDisable(false);
     }
-        
+    
+    // METODO ENCARGADO DE HABILITAR LOS CAMPOS PARA EL REGISTRO DE UN NUEVO JEFE DE SUCURSAL
     @FXML
     private void nuevoJefeSuc(ActionEvent event) {
+        limpiarCamposSuc();
         txtNombreJefeSuc.setEditable(true);
         txtApellidoJefeSuc.setEditable(true);
         txtNombreSuc.setEditable(true);
@@ -311,8 +325,10 @@ public class GestionDeUsuariosController implements Initializable {
         txtEmailSuc.setEditable(true);
         rbEstadoActivoSuc.setDisable(false);
         btnGuardarJefeSuc.setDisable(false);
+        btnNuevoJefeSuc.setDisable(true);
     }
-
+    
+    // METODO ENCARGADO DE MODIFICAR UN USUARIO JEFE DE SUCURSAL
     @FXML
     private void modificarJefeSuc(ActionEvent event) throws SQLException {
         
@@ -392,7 +408,7 @@ public class GestionDeUsuariosController implements Initializable {
         String nombreSucursal = txtNombreSuc.getText();
         String ciudadSucursal = txtCiudadSucursal.getText();
         String direccionSucursal = txtDireccionSuc.getText();
-        int telefono = Integer.parseInt(txtTelefonoSuc.getText());
+        String telefono = txtTelefonoSuc.getText();
         String e_mail = txtEmailSuc.getText();
         
         if(rbEstadoActivoSuc.isSelected()){
@@ -448,7 +464,8 @@ public class GestionDeUsuariosController implements Initializable {
         limpiarCamposSuc();
         
     }
-
+    
+    // METODO ENCARGADO DE REGISTRAR UN NUEVO USUARIO JEFE DE SUCURSAL
     @FXML
     private void guardarJefeSuc(ActionEvent event) throws SQLException {
         
@@ -534,7 +551,7 @@ public class GestionDeUsuariosController implements Initializable {
         String nombreSucursal = txtNombreSuc.getText();
         String ciudadSucursal = txtCiudadSucursal.getText();
         String direccionSucursal = txtDireccionSuc.getText();
-        int telefono = Integer.parseInt(txtTelefonoSuc.getText());
+        String telefono = txtTelefonoSuc.getText();
         String e_mail = txtEmailSuc.getText();
         
         estadoUsuario = 1;
@@ -586,7 +603,8 @@ public class GestionDeUsuariosController implements Initializable {
         
         limpiarCamposSuc();
     }
-
+    
+    // METODO ENCARGADO LIMPIAR CAMPOS DE BUSQUEDA
     @FXML
     private void limpiarBusquedaEmpleado(ActionEvent event) {
         tblMostrarUsuarioEmp.getColumns().clear();
@@ -601,7 +619,8 @@ public class GestionDeUsuariosController implements Initializable {
         rbBuscarEmpPorCodigo.setSelected(false);
         lblMensajeBd.setText("");
     }
-
+    
+    // METODO ENCARGADO DE BUSCAR UN EMPLEADO 
     @FXML
     private void buscarUsuarioEmpleado(ActionEvent event) throws SQLException {
         
@@ -673,32 +692,302 @@ public class GestionDeUsuariosController implements Initializable {
         }
         
     }
-
+        
+    // METODO ENCARGADO DE DEVOLVER EL ITEM SELECCIONADO EN LA TABLA JEFESUCURSAL
     @FXML
     private void getUsuarioEmpSeleccionado(MouseEvent event) {
+        
+        tblMostrarUsuarioEmp.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                if (tblMostrarUsuarioEmp != null) {
+                                        
+                    String valor = tblMostrarUsuarioEmp.getSelectionModel().getSelectedItems().get(0).toString();
+                    
+                    String cincoDigitos = valor.substring(1, 6);
+                    String cuatroDigitos = valor.substring(1, 5);
+                    String tresDigitos = valor.substring(1, 4);
+                    String dosDigitos = valor.substring(1, 3);
+                    String unDigitos = valor.substring(1, 2);
+                    
+                    Pattern p = Pattern.compile("^[0-9]*$");
+                    
+                    Matcher m5 = p.matcher(cincoDigitos);
+                    Matcher m4 = p.matcher(cuatroDigitos);
+                    Matcher m3 = p.matcher(tresDigitos);
+                    Matcher m2 = p.matcher(dosDigitos);
+                    
+                    if (m5.find()) {
+                        limpiarCamposEmp();
+                        cargarDatosEmpleadoAlFormulario(cincoDigitos);
+                        codigoEmpleado = cincoDigitos;
+                    } else {
+                        if (m4.find()) {
+                            limpiarCamposEmp();
+                            cargarDatosEmpleadoAlFormulario(cuatroDigitos);
+                            codigoEmpleado = cuatroDigitos;
+                        } else {
+                            if (m3.find()) {
+                                limpiarCamposEmp();
+                                cargarDatosEmpleadoAlFormulario(tresDigitos);
+                                codigoEmpleado = tresDigitos;
+                            } else {
+                                if (m2.find()) {
+                                    limpiarCamposEmp();
+                                    cargarDatosEmpleadoAlFormulario(dosDigitos);
+                                    codigoEmpleado = dosDigitos;
+                                } else {
+                                    limpiarCamposEmp();
+                                    cargarDatosEmpleadoAlFormulario(unDigitos);
+                                    codigoEmpleado = unDigitos;
+                                }
+                             }
+                        }
+                    }
+                }
+            }
+        });
+        
+        btnModificarEmpleado.setDisable(false);
     }
-
-    @FXML
-    private void nuevoEmpleado(ActionEvent event) {
+    
+    // METODO ENCARGADO DE CARGAR LOS DATOS AL FORMULARIO EEMPLEADOS SEGUN EL ITEM SELECCIONADO
+    private void cargarDatosEmpleadoAlFormulario(String dato){
+        
+        ResultSet cargaDatosParaFormularioEmpeados = usuarioDao.datosParaFormularioEmpleados(dato);
+        
+        try {
+                                 
+            while (cargaDatosParaFormularioEmpeados.next()) {
+                
+                txtNombreEmpleado.setText(cargaDatosParaFormularioEmpeados.getString("NOMBRE_USUARIO").trim());
+                txtApellidoEmpleado.setText(cargaDatosParaFormularioEmpeados.getString("APELLIDOS").trim());
+                rbEstadoActivoEmpleado.setDisable(false);
+                rbEstadoInactivoEmpleado.setDisable(false);
+                String cargo = cargaDatosParaFormularioEmpeados.getString("CARGO").trim();
+                ckbGerente.setDisable(false);
+                ckbJefeDeBodega.setDisable(false);
+                if(cargo.equals("Gerente")){
+                ckbGerente.setSelected(true);
+                }else{ckbJefeDeBodega.setSelected(true);}
+                txtTelefonoEmpleado.setText(cargaDatosParaFormularioEmpeados.getString("TELEFONO").trim());
+                txtEmailEmpleado.setText(cargaDatosParaFormularioEmpeados.getString("E_MAIL").trim());
+                int estadoEmpleado = cargaDatosParaFormularioEmpeados.getInt("ESTADOID");
+                rbEstadoActivoEmpleado.setDisable(false);
+                rbEstadoInactivoEmpleado.setDisable(false);
+                if(estadoEmpleado == 1){
+                rbEstadoActivoEmpleado.setSelected(true);
+                }else{rbEstadoInactivoEmpleado.setSelected(true);}
+                
+            }
+            cargaDatosParaFormularioEmpeados.close();
+          } catch (SQLException ex) {
+            System.out.println("Error "+ex);
+        }
+        
         txtNombreEmpleado.setEditable(true);
         txtApellidoEmpleado.setEditable(true);
-        cbCargo.setDisable(false);
+        txtTelefonoEmpleado.setEditable(true);
+        txtEmailEmpleado.setEditable(true);
+        btnModificarEmpleado.setDisable(false);
+        ckbGerente.setDisable(true);
+        ckbJefeDeBodega.setDisable(true);
+    }
+    
+    // METODO ENCARGADO DE HABILITAR LOS CAMPOS PARA UN NUEVO EMPLEADO 
+    @FXML
+    private void nuevoEmpleado(ActionEvent event) {
+        limpiarCamposEmp();
+        txtNombreEmpleado.setEditable(true);
+        txtApellidoEmpleado.setEditable(true);
+        ckbGerente.setDisable(false);
+        ckbJefeDeBodega.setDisable(false);
+        ckbGerente.setSelected(true);
         txtTelefonoEmpleado.setEditable(true);
         txtEmailEmpleado.setEditable(true);
         rbEstadoActivoEmpleado.setDisable(false);
         btnGuardarEmpleado.setDisable(false);
+        btnNuevoEmpleado.setDisable(true);
     }
-
+    
+    //METODO ENCARGADO DE MODIFICAR EL EMPLEADO
     @FXML
     private void modificarEmpleado(ActionEvent event) {
         
+         limpiarMensajesEmp();
         
+       //Validacion de campos vacios
+        if (validacion.validarVacios(txtNombreEmpleado.getText())) {
+           lblMensajeNombreEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de campos solo letras
+        if (validacion.soloLetras(txtNombreEmpleado.getText())) {
+           lblMensajeNombreEmp.setText("este campo solo recibe letras");
+           return;
+           
+        }
+        
+        if (validacion.validarVacios(txtApellidoEmpleado.getText())) {
+           lblMensajeApellidoEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de campos solo letras
+        if (validacion.soloLetras(txtApellidoEmpleado.getText())) {
+           lblMensajeApellidoEmp.setText("este campo solo recibe letras");
+           return;
+           
+        }       
+        
+        if (validacion.validarVacios(txtTelefonoEmpleado.getText())) {
+           lblMensajeTelefonoEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de campos solo numeros
+        if (validacion.soloNumeros(txtTelefonoEmpleado.getText())) {
+           lblMensajeTelefonoEmp.setText("este campo solo recibe numeros");
+           return;
+        }
+        
+        if (validacion.validarVacios(txtEmailEmpleado.getText())) {
+           lblMensajeEmailEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de sintaxis de correo
+        if (!validacion.validarCorreo(txtEmailEmpleado.getText())) {
+           lblMensajeEmailEmp.setText("correo invalido");
+           return;
+        }
+        
+        String nombres = txtNombreEmpleado.getText();
+        String apellidos = txtApellidoEmpleado.getText();
+        String telefono = txtTelefonoEmpleado.getText();
+        String e_mail = txtEmailEmpleado.getText();
+        if(ckbGerente.isSelected()){cargoEmpleado = "Gerente";}
+        if(ckbJefeDeBodega.isSelected()){cargoEmpleado = "Jefe de Sucursal";} 
+        estadoUsuario = 1;
+        
+        String clave = claveGenerada.GenerarClave();
+        
+        Usuario nuevoEmpleado = new Usuario();
+        nuevoEmpleado.setEstado(estadoUsuario);
+        nuevoEmpleado.setNombres(nombres);
+        nuevoEmpleado.setApellidos(apellidos);
+        nuevoEmpleado.setCargo(cargoEmpleado);
+        nuevoEmpleado.setTelefono(telefono);
+        nuevoEmpleado.setE_mail(e_mail);
+        nuevoEmpleado.setClave(clave);
+        nuevoEmpleado.setCodigoUsuario(Integer.parseInt(codigoEmpleado));
+        
+        PreparedStatement estado = usuarioDao.modificarUsuario(nuevoEmpleado);
+        
+            try {
+                int n = estado.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Empleado modificado exitosamente");
+                estado.close();
+            }catch (SQLException e) {
+            System.out.println("Error " + e);
+            }
+        
+        limpiarCamposEmp();
     }
-
+    
+    //METODO ENCARGADO DE REALIZAR EL REGISTRO DE UN NUEVO EMPLEADO
     @FXML
     private void guardarEmpleado(ActionEvent event) {
+        
+        limpiarMensajesEmp();
+        
+       //Validacion de campos vacios
+        if (validacion.validarVacios(txtNombreEmpleado.getText())) {
+           lblMensajeNombreEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de campos solo letras
+        if (validacion.soloLetras(txtNombreEmpleado.getText())) {
+           lblMensajeNombreEmp.setText("este campo solo recibe letras");
+           return;
+           
+        }
+        
+        if (validacion.validarVacios(txtApellidoEmpleado.getText())) {
+           lblMensajeApellidoEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de campos solo letras
+        if (validacion.soloLetras(txtApellidoEmpleado.getText())) {
+           lblMensajeApellidoEmp.setText("este campo solo recibe letras");
+           return;
+           
+        }       
+        
+        if (validacion.validarVacios(txtTelefonoEmpleado.getText())) {
+           lblMensajeTelefonoEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de campos solo numeros
+        if (validacion.soloNumeros(txtTelefonoEmpleado.getText())) {
+           lblMensajeTelefonoEmp.setText("este campo solo recibe numeros");
+           return;
+        }
+        
+        if (validacion.validarVacios(txtEmailEmpleado.getText())) {
+           lblMensajeEmailEmp.setText("campo obligatorio");
+           return;
+        }
+        
+        //Validacion de sintaxis de correo
+        if (!validacion.validarCorreo(txtEmailEmpleado.getText())) {
+           lblMensajeEmailEmp.setText("correo invalido");
+           return;
+        }
+        
+        //validar el radiobuton
+        if(!rbEstadoActivoEmpleado.isSelected()){
+           lblMensajeEstadoEmp.setText("debe seleccionar el estado");
+           return;
+        }
+        
+        String nombres = txtNombreEmpleado.getText();
+        String apellidos = txtApellidoEmpleado.getText();
+        String telefono = txtTelefonoEmpleado.getText();
+        String e_mail = txtEmailEmpleado.getText();
+        if(ckbGerente.isSelected()){cargoEmpleado = "Gerente";}
+        if(ckbJefeDeBodega.isSelected()){cargoEmpleado = "Jefe de Bodega";} 
+        estadoUsuario = 1;
+        
+        String clave = claveGenerada.GenerarClave();
+        
+        Usuario nuevoEmpleado = new Usuario();
+        nuevoEmpleado.setEstado(estadoUsuario);
+        nuevoEmpleado.setNombres(nombres);
+        nuevoEmpleado.setApellidos(apellidos);
+        nuevoEmpleado.setCargo(cargoEmpleado);
+        nuevoEmpleado.setTelefono(telefono);
+        nuevoEmpleado.setE_mail(e_mail);
+        nuevoEmpleado.setClave(clave);
+        
+        PreparedStatement estado = usuarioDao.nuevoUsuario(nuevoEmpleado);
+        
+            try {
+                int n = estado.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Usuario registrado exitosamente\nClave asignada: " + clave);
+                estado.close();
+            }catch (SQLException e) {
+            System.out.println("Error " + e);
+            }
+            
+        limpiarCamposEmp();
     }
-
+    
+    // METODO ENCARGADO DE LLAMAR A LA SCENE MENU PRINCIPAL
     @FXML
     private void volverMenuPrincipal(ActionEvent event) {
         
@@ -719,7 +1008,7 @@ public class GestionDeUsuariosController implements Initializable {
             } catch (IOException e) {}
     }
     
-    //Acciones de los radio buton
+    // METODO QUE HABILITA EL CAMPO BUSCAR POR NOMBRE DE SUCURSAL
     @FXML
     private void selecBuscarSucPorNombre(ActionEvent event) {
         txtBuscarSucPorNombre.setEditable(true);
@@ -728,6 +1017,7 @@ public class GestionDeUsuariosController implements Initializable {
         btnBuscarSuc.setDisable(false);
     }
     
+    // METODO QUE HABILITA EL CAMPO BUSCAR POR CODIGO DE SUCURSAL
     @FXML
     private void selecBuscarSucPorCodigo(ActionEvent event) {
         txtBuscarSucPorNombre.setEditable(false);
@@ -736,16 +1026,31 @@ public class GestionDeUsuariosController implements Initializable {
         btnBuscarSuc.setDisable(false);
     }
     
+    // METODO QUE DEHABILITA INACTIVO DE SUCURSAL
     @FXML
     private void selecSucActivo(ActionEvent event) {
         rbEstadoInactivoSuc.setSelected(false);
     }
     
+    // METODO QUE DEHABILITA ACTIVO DE SUCURSAL
     @FXML
     private void selecSucInactivo(ActionEvent event) {
         rbEstadoActivoSuc.setSelected(false);
     }
     
+    // METODO QUE DEHABILITA CARGO JEFE DE BODEGA
+    @FXML
+    private void seleccionGerente(ActionEvent event) {
+        ckbJefeDeBodega.setSelected(false);
+    }
+    
+    // METODO QUE DEHABILITA CARGO GERENTE
+    @FXML
+    private void seleccionJefeDeBodega(ActionEvent event) {
+        ckbGerente.setSelected(false);
+    }
+    
+    // METODO QUE HABILITA EL CAMPO BUSQUEDA POR NOMBRE DE EMPLEADO
     @FXML
     private void selecBuscarEmpPorNombre(ActionEvent event) {
         txtBuscarEmpPorNombre.setEditable(true);
@@ -754,6 +1059,7 @@ public class GestionDeUsuariosController implements Initializable {
         btnBuscarEmp.setDisable(false);
     }
     
+    // METODO QUE HABILITA EL CAMPO BUSQUEDA POR CODIGO DE EMPLEADO
     @FXML
     private void selecBuscarEmpPorCodigo(ActionEvent event) {
         txtBuscarEmpPorNombre.setEditable(false);
@@ -762,11 +1068,13 @@ public class GestionDeUsuariosController implements Initializable {
         btnBuscarEmp.setDisable(false);
     }
     
+    // METODO QUE DEHABILITA INACTIVO DE EMPLEADO
     @FXML
     private void selecEmpActivo(ActionEvent event) {
         rbEstadoInactivoEmpleado.setSelected(false);
     }
     
+    // METODO QUE DEHABILITA ACTIVO DE EMPLEADO
     @FXML
     private void selecEmpInactivo(ActionEvent event) {
         rbEstadoActivoEmpleado.setSelected(false);
@@ -870,12 +1178,21 @@ public class GestionDeUsuariosController implements Initializable {
     
     private void limpiarCamposEmp(){
         txtNombreEmpleado.setText("");
+        txtNombreEmpleado.setEditable(false);
         txtApellidoEmpleado.setText("");
-        cbCargo.setPromptText("Seleccionar");
+        txtApellidoEmpleado.setEditable(false);
+        ckbGerente.setSelected(false);
+        ckbGerente.setDisable(true);
+        ckbJefeDeBodega.setSelected(false);
+        ckbJefeDeBodega.setDisable(true);
         txtTelefonoEmpleado.setText("");
+        txtTelefonoEmpleado.setEditable(false);
         txtEmailEmpleado.setText("");
+        txtEmailEmpleado.setEditable(false);
         rbEstadoActivoEmpleado.setSelected(false);
-
+        rbEstadoActivoEmpleado.setDisable(true);
+        rbEstadoInactivoEmpleado.setSelected(false);
+        rbEstadoInactivoEmpleado.setDisable(true);
     }
     
     private void limpiarMensajesEmp(){

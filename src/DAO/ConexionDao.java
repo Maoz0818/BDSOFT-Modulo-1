@@ -9,7 +9,7 @@ public class ConexionDao {
     
     //Declaracion de variables
     private static Connection coneccion;
-    private static final String url = "jdbc:postgresql://localhost:5432/DBModulo1";
+    private static final String url = "jdbc:postgresql://localhost:5432/BDModulo1";
     private static final String usuario = "postgres";
     private static final String contraseña = "mao4202229";
     

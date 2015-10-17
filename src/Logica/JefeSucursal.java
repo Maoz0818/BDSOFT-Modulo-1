@@ -9,7 +9,7 @@ public class JefeSucursal extends Usuario{
     public JefeSucursal(){}
     
     //Constructor con atributos
-    public JefeSucursal( int estado, String nombres, String apellidos, String cargo, int telefono, String e_mail,String clave) {
+    public JefeSucursal( int estado, String nombres, String apellidos, String cargo, String telefono, String e_mail,String clave) {
         super(estado, nombres, apellidos, cargo, telefono, e_mail, clave);
     }
     

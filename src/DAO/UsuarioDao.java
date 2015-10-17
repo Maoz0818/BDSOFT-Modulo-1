@@ -77,9 +77,9 @@ public class UsuarioDao {
     
         try {  conexion = ConexionDao.Conectar();
             if(cargo.equals("Bodega")){
-            String sql = "SELECT USU.USUARIOID CODIGO, (USU.NOMBRES, USU.APELLIDOS) NOMBRE, USU.CARGO CARGO, USU.E_MAIL CORREO, EST.NOMBRE ESTADO\n" +
+            String sql = "SELECT USU.USUARIOID CODIGO, USU.NOMBRES NOMBRES, USU.APELLIDOS APELLIDOS, USU.CARGO CARGO, USU.E_MAIL CORREO, EST.NOMBRE ESTADO\n" +
             "FROM ESTADOS EST INNER JOIN USUARIOS USU ON EST.ESTADOID = USU.ESTADOID\n" +
-            "WHERE (USU.USUARIOID = " + busquedaPorCodigo + ") AND (USU.CARGO = 'Gerente' OR USU.CARGO = 'Jefe de Bpdega')";
+            "WHERE (USU.USUARIOID = " + busquedaPorCodigo + ") AND (USU.CARGO = 'Gerente' OR USU.CARGO = 'Jefe de Bodega')";
             resuladoUsuario = conexion.createStatement().executeQuery(sql);
             }
             
@@ -112,7 +112,7 @@ public class UsuarioDao {
             estado.setString(2, nuevoUsuario.getNombres());
             estado.setString(3, nuevoUsuario.getApellidos());
             estado.setString(4, nuevoUsuario.getCargo());
-            estado.setInt(5, nuevoUsuario.getTelefono());
+            estado.setString(5, nuevoUsuario.getTelefono());
             estado.setString(6, nuevoUsuario.getE_mail());
             estado.setString(7, nuevoUsuario.getClave());
             
@@ -156,13 +156,55 @@ public class UsuarioDao {
             estado.setInt(1, modificarUsuario.getEstado());
             estado.setString(2, modificarUsuario.getNombres());
             estado.setString(3, modificarUsuario.getApellidos());
-            estado.setInt(4, modificarUsuario.getTelefono());
+            estado.setString(4, modificarUsuario.getTelefono());
             estado.setString(5, modificarUsuario.getE_mail());
         } catch (SQLException e) {
             System.out.println("Error " + e.getMessage());
         }
         
         return estado;
+    }
+    
+    // SQL para modificar usuario
+    public PreparedStatement modificarEmpleado(Usuario modificarEmpleado){
+        
+        PreparedStatement estado = null;
+                
+        try {  conexion = ConexionDao.Conectar();
+            String sql = "UPDATE USUARIOS "
+                    + " SET  ESTADOID = ?, NOMBRES = ?, APELLIDOS = ?, CARGO = ?, TELEFONO = ?, E_MAIL = ?"
+                    + " WHERE USUARIOID = " + modificarEmpleado.getCodigoUsuario();
+            
+            estado = conexion.prepareStatement(sql);
+            estado.setInt(1, modificarEmpleado.getEstado());
+            estado.setString(2, modificarEmpleado.getNombres());
+            estado.setString(3, modificarEmpleado.getApellidos());
+            estado.setString(4, modificarEmpleado.getCargo());
+            estado.setString(5, modificarEmpleado.getTelefono());
+            estado.setString(6, modificarEmpleado.getE_mail());
+        } catch (SQLException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+        
+        return estado;
+    }
+    
+    // SQL para traer los datos del registro seleccionado
+    public ResultSet datosParaFormularioEmpleados(String dato){
+        
+        ResultSet resuladoDatosParaFormularioEmpleados = null;
+    
+        try {  conexion = ConexionDao.Conectar();
+            String sql = "SELECT  USU.NOMBRES NOMBRE_USUARIO, USU.APELLIDOS, USU.CARGO, USU.TELEFONO, USU.E_MAIL, USU.ESTADOID\n" +
+                         "FROM USUARIOS USU INNER JOIN EMPLEADOS EMP ON USU.USUARIOID = EMP.USUARIOID\n" +
+                         "WHERE USU.USUARIOID = '"+dato+"'";
+                         
+            resuladoDatosParaFormularioEmpleados = conexion.createStatement().executeQuery(sql);
+                    
+        } catch (SQLException e) {
+            System.out.println("Error" + e.getMessage());
+        }
+        return resuladoDatosParaFormularioEmpleados;
     }
     
 }
