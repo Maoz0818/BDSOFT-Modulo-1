@@ -45,6 +45,7 @@ public class MenuGerenteController implements Initializable {
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
             primaryStage.centerOnScreen();
+            primaryStage.setTitle("Gestion de Usuarios");
             primaryStage.show();
                                 
             } catch (IOException e) {}
@@ -68,6 +69,7 @@ public class MenuGerenteController implements Initializable {
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
             primaryStage.centerOnScreen();
+            primaryStage.setTitle("Cambio de clave Gerente");
             primaryStage.show();
                     
             } catch (IOException e) {}
@@ -87,6 +89,7 @@ public class MenuGerenteController implements Initializable {
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
             primaryStage.centerOnScreen();
+            primaryStage.setTitle("Login");
             primaryStage.show();
                     
             } catch (IOException e) {}

@@ -126,14 +126,12 @@ public class CambioDeClaveController implements Initializable {
     @FXML
     private void volverMenuPrincipal(ActionEvent event) throws SQLException {
         
-        //While para recorrer el ResultSet y obtener el cargo del usuario
-        while(resultadoConsulta.next()){
-            cargo = resultadoConsulta.getString("cargo").trim();
-        }
-        
+        Node node = (Node) event.getSource();
+        Stage primaryStage = (Stage) node.getScene().getWindow();
+        cargo = primaryStage.getTitle();
         
         switch(cargo){
-                    case "Gerente":
+                    case "Cambio de clave Gerente":
                                 try {
                                 //Cargamos la scene
                                 FXMLLoader loader = new FXMLLoader();
@@ -142,16 +140,15 @@ public class CambioDeClaveController implements Initializable {
 
                                 //Agregamos a la ventana
                                 Scene scene = new Scene(Gerente);
-                                Node node = (Node) event.getSource();
-                                Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
                                 primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Gerente");
                                 primaryStage.show();
                     
                                 } catch (IOException e) {}
                         break;
                         
-                        case "Jefe de Bodega":
+                        case "Cambio de clave Jefe de Bodega":
                                 try {
                                 //Cargamos la scene
                                 FXMLLoader loader = new FXMLLoader();
@@ -160,16 +157,15 @@ public class CambioDeClaveController implements Initializable {
                                 
                                 //Agregamos a la ventana
                                 Scene scene = new Scene(JefeBodega);
-                                Node node = (Node) event.getSource();
-                                Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
                                 primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Jefe de Bodega");
                                 primaryStage.show();
                                 
                                 } catch (IOException e) {}
                         break;
                             
-                        case "Jefe de Sucursal":
+                        case "Cambio de clave Jefe de Sucursal":
                                 try {
                                 //Cargamos la scene
                                 FXMLLoader loader = new FXMLLoader();
@@ -178,10 +174,9 @@ public class CambioDeClaveController implements Initializable {
                                 
                                 //Agregamos a la ventana
                                 Scene scene = new Scene(JefeSucursal);
-                                Node node = (Node) event.getSource();
-                                Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
                                 primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Jefe de Sucursal");
                                 primaryStage.show();
                                 
                                 } catch (IOException e) {}

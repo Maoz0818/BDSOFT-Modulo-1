@@ -41,6 +41,7 @@ public class MenuJefeDeBodegaController implements Initializable {
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
             primaryStage.centerOnScreen();
+            primaryStage.setTitle("Cambio de clave Jefe de Bodega");
             primaryStage.show();
                     
             } catch (IOException e) {}
@@ -60,6 +61,7 @@ public class MenuJefeDeBodegaController implements Initializable {
             Stage primaryStage = (Stage) node.getScene().getWindow();
             primaryStage.setScene(scene);
             primaryStage.centerOnScreen();
+            primaryStage.setTitle("Login");
             primaryStage.show();
                     
             } catch (IOException e) {}
