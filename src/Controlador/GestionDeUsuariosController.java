@@ -867,23 +867,23 @@ public class GestionDeUsuariosController implements Initializable {
         String apellidos = txtApellidoEmpleado.getText();
         String telefono = txtTelefonoEmpleado.getText();
         String e_mail = txtEmailEmpleado.getText();
-        if(ckbGerente.isSelected()){cargoEmpleado = "Gerente";}
-        if(ckbJefeDeBodega.isSelected()){cargoEmpleado = "Jefe de Sucursal";} 
-        estadoUsuario = 1;
+        if(rbEstadoActivoEmpleado.isSelected()){
+            estadoUsuario = 1;
+        }
         
-        String clave = claveGenerada.GenerarClave();
+        if(rbEstadoInactivoEmpleado.isSelected()){
+            estadoUsuario = 2;
+        }
         
         Usuario nuevoEmpleado = new Usuario();
         nuevoEmpleado.setEstado(estadoUsuario);
         nuevoEmpleado.setNombres(nombres);
         nuevoEmpleado.setApellidos(apellidos);
-        nuevoEmpleado.setCargo(cargoEmpleado);
         nuevoEmpleado.setTelefono(telefono);
         nuevoEmpleado.setE_mail(e_mail);
-        nuevoEmpleado.setClave(clave);
         nuevoEmpleado.setCodigoUsuario(Integer.parseInt(codigoEmpleado));
         
-        PreparedStatement estado = usuarioDao.modificarUsuario(nuevoEmpleado);
+        PreparedStatement estado = usuarioDao.modificarEmpleado(nuevoEmpleado);
         
             try {
                 int n = estado.executeUpdate();

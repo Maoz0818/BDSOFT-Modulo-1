@@ -172,16 +172,15 @@ public class UsuarioDao {
                 
         try {  conexion = ConexionDao.Conectar();
             String sql = "UPDATE USUARIOS "
-                    + " SET  ESTADOID = ?, NOMBRES = ?, APELLIDOS = ?, CARGO = ?, TELEFONO = ?, E_MAIL = ?"
+                    + " SET  ESTADOID = ?, NOMBRES = ?, APELLIDOS = ?, TELEFONO = ?, E_MAIL = ?"
                     + " WHERE USUARIOID = " + modificarEmpleado.getCodigoUsuario();
             
             estado = conexion.prepareStatement(sql);
             estado.setInt(1, modificarEmpleado.getEstado());
             estado.setString(2, modificarEmpleado.getNombres());
             estado.setString(3, modificarEmpleado.getApellidos());
-            estado.setString(4, modificarEmpleado.getCargo());
-            estado.setString(5, modificarEmpleado.getTelefono());
-            estado.setString(6, modificarEmpleado.getE_mail());
+            estado.setString(4, modificarEmpleado.getTelefono());
+            estado.setString(5, modificarEmpleado.getE_mail());
         } catch (SQLException e) {
             System.out.println("Error " + e.getMessage());
         }
