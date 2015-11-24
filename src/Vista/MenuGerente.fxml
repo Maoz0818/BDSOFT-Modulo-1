@@ -8,14 +8,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="721.0" styleClass="fondox" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MenuGerenteController">
    <children>
-      <Pane layoutX="97.0" layoutY="102.0" prefHeight="340.0" prefWidth="590.0" styleClass="fondo_azul">
+      <Pane layoutX="97.0" layoutY="101.0" prefHeight="350.0" prefWidth="590.0" styleClass="fondo_azul">
          <children>
-            <Label layoutX="38.0" layoutY="25.0" text="Menu Principal Gerente" textFill="#f8f7f7">
+            <Label layoutX="38.0" layoutY="21.0" text="Menu Principal Gerente" textFill="#f8f7f7">
                <font>
                   <Font name="System Italic" size="28.0" />
                </font>
             </Label>
-            <Button fx:id="btnGestionDeUsuarios" layoutX="119.0" layoutY="98.0" mnemonicParsing="false" onAction="#ingresoGestionDeUsuarios" prefHeight="40.0" prefWidth="227.0" text="Gestion de Usuarios">
+            <Button fx:id="btnGestionDeUsuarios" layoutX="119.0" layoutY="76.0" mnemonicParsing="false" onAction="#ingresoGestionDeUsuarios" prefHeight="50.0" prefWidth="233.0" text="Gestion de Usuarios      ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -27,7 +27,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnOrdenesDeCompra" disable="true" layoutX="119.0" layoutY="166.0" mnemonicParsing="false" onAction="#ingresoOrdenesDeCompra" prefHeight="50.0" prefWidth="227.0" text="Ordenes de Compra">
+            <Button fx:id="btnOrdenesDeCompra" disable="true" layoutX="119.0" layoutY="206.0" mnemonicParsing="false" onAction="#ingresoOrdenesDeCompra" prefHeight="50.0" prefWidth="233.0" text="Ordenes de Compra      ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -39,7 +39,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnCambioDeClave" layoutX="119.0" layoutY="237.0" mnemonicParsing="false" onAction="#ingresoCambioDeClave" prefHeight="50.0" prefWidth="227.0" text="Cambio de Clave">
+            <Button fx:id="btnCambioDeClave" layoutX="119.0" layoutY="271.0" mnemonicParsing="false" onAction="#ingresoCambioDeClave" prefHeight="50.0" prefWidth="233.0" text="Cambio de Clave           ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -56,6 +56,18 @@
                   <Image url="@../CSS/Gerente.png" />
                </image>
             </ImageView>
+            <Button fx:id="btnGestionDeProveedores" layoutX="119.0" layoutY="141.0" mnemonicParsing="false" onAction="#ingresoGestionDeProveedores" prefHeight="50.0" prefWidth="233.0" text="Gestion de Proveedores">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../CSS/proveedor.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="97.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">

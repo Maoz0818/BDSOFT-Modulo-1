@@ -403,6 +403,12 @@ public class GestionDeUsuariosController implements Initializable {
            return;
         }
         
+        //validar el radiobuton
+        if(!(rbEstadoActivoSuc.isSelected() || rbEstadoInactivoSuc.isSelected())){
+           lblMensajeEstadoSuc.setText("debe seleccionar el estado");
+           return;
+        }
+        
         String nombres = txtNombreJefeSuc.getText();
         String apellidos = txtApellidoJefeSuc.getText();
         String nombreSucursal = txtNombreSuc.getText();
@@ -541,7 +547,7 @@ public class GestionDeUsuariosController implements Initializable {
         }
         
         //validar el radiobuton
-        if(!rbEstadoActivoSuc.isSelected()){
+        if(!(rbEstadoActivoSuc.isSelected() || rbEstadoInactivoSuc.isSelected())){
            lblMensajeEstadoSuc.setText("debe seleccionar el estado");
            return;
         }
@@ -863,6 +869,12 @@ public class GestionDeUsuariosController implements Initializable {
            return;
         }
         
+        //validar el radiobuton
+        if(!(rbEstadoActivoEmpleado.isSelected() || rbEstadoInactivoEmpleado.isSelected())){
+           lblMensajeEstadoEmp.setText("debe seleccionar el estado");
+           return;
+        }
+        
         String nombres = txtNombreEmpleado.getText();
         String apellidos = txtApellidoEmpleado.getText();
         String telefono = txtTelefonoEmpleado.getText();
@@ -950,7 +962,7 @@ public class GestionDeUsuariosController implements Initializable {
         }
         
         //validar el radiobuton
-        if(!rbEstadoActivoEmpleado.isSelected()){
+        if(!(rbEstadoActivoEmpleado.isSelected() || rbEstadoInactivoEmpleado.isSelected())){
            lblMensajeEstadoEmp.setText("debe seleccionar el estado");
            return;
         }
@@ -1083,7 +1095,7 @@ public class GestionDeUsuariosController implements Initializable {
     
     // METODO ENCARGADO DE CARGAR LOS DATOS A LA TABLA JEFE DE SUCURSAL
     private void cargarDatosTablaUsuarios(ResultSet resultadoUsuario, TableView tabla) {
-        tblMostrarSucursales.getColumns().clear();
+        tabla.getColumns().clear();
         usuario = FXCollections.observableArrayList();
         ResultSet resultadoDatosTablaUsuarios = resultadoUsuario;
 

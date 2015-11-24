@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1343.0" styleClass="fondo_azul" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.GestionDeProveedoresController">
+   <children>
+      <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="7.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1261.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/proveedor.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="830.0" layoutY="22.0" text="Gestión de Proveedores" textFill="#f8f4f4">
+         <font>
+            <Font name="System Italic" size="42.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="78.0" prefHeight="537.0" prefWidth="1315.0" styleClass="paneles" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Proveedores">
+               <content>
+                  <Pane prefHeight="498.0" prefWidth="1361.0" styleClass="paneles">
+                     <children>
+                        <Separator layoutX="858.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
+                           <effect>
+                              <InnerShadow color="#908888" />
+                           </effect>
+                        </Separator>
+                        <Label layoutX="14.0" layoutY="21.0" text="Busqueda de Proveedor" />
+                        <RadioButton fx:id="rbBuscarProvPorRut" layoutX="47.0" layoutY="61.0" mnemonicParsing="false" onAction="#selecBuscarProvPorRut" text="Rut del Proveedor" />
+                        <TextField fx:id="txtBuscarProvPorRut" editable="false" layoutX="236.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" />
+                        <RadioButton fx:id="rbBuscarProvPorNombre" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" onAction="#selecBuscarProvPorNombre" text="Nombre del Proveedor" />
+                        <TextField fx:id="txtBuscarProvPorNombre" editable="false" layoutX="236.0" layoutY="104.0" prefHeight="31.0" prefWidth="371.0" />
+                        <Button fx:id="btnLimpiarBusquedaProv" layoutX="468.0" layoutY="152.0" mnemonicParsing="false" onAction="#limpiarBusquedaProv" text="Limpiar Busqueda" />
+                        <Button fx:id="btnBuscarProv" disable="true" layoutX="379.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscarProv" text="Buscar" />
+                        <TableView fx:id="tblMostrarProveedores" layoutX="10.0" layoutY="247.0" onMouseClicked="#getProvSeleccionado" prefHeight="232.0" prefWidth="840.0" />
+                        <Label layoutX="880.0" layoutY="25.0" text="Rut" />
+                        <Label layoutX="880.0" layoutY="135.0" text="Direccion" />
+                        <Label layoutX="880.0" layoutY="190.0" text="Ciudad" />
+                        <Label layoutX="880.0" layoutY="248.0" text="Teléfono" />
+                        <Label layoutX="880.0" layoutY="300.0" text="E-mail" />
+                        <Label layoutX="880.0" layoutY="404.0" text="Estado de Proveedor" />
+                        <TextField fx:id="txtRutProveedor" editable="false" layoutX="1030.0" layoutY="25.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtNombreProveedor" editable="false" layoutX="1030.0" layoutY="80.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtDireccionProveedor" editable="false" layoutX="1030.0" layoutY="135.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtCiudadProveedor" editable="false" layoutX="1030.0" layoutY="190.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtTelefonoProveedor" editable="false" layoutX="1030.0" layoutY="245.0" prefHeight="31.0" prefWidth="264.0" />
+                        <TextField fx:id="txtEmailProveedor" editable="false" layoutX="1030.0" layoutY="300.0" prefHeight="31.0" prefWidth="264.0" />
+                        <RadioButton fx:id="rbEstadoActivoProv" disable="true" layoutX="1053.0" layoutY="404.0" mnemonicParsing="false" onAction="#selecProvActivo" text="Activo" />
+                        <RadioButton fx:id="rbEstadoInactivoProv" disable="true" layoutX="1170.0" layoutY="404.0" mnemonicParsing="false" onAction="#selecProvInactivo" text="Inactivo" />
+                        <Button fx:id="btnNuevoProveedor" disable="true" layoutX="890.0" layoutY="451.0" mnemonicParsing="false" onAction="#nuevoProveedor" prefHeight="31.0" prefWidth="135.0" text="Nuevo Usuario" />
+                        <Button fx:id="btnModificarProveedor" disable="true" layoutX="1080.0" layoutY="451.0" mnemonicParsing="false" onAction="#modificarProveedor" text="Modificar" />
+                        <Button fx:id="btnGuardarProveedor" disable="true" layoutX="1221.0" layoutY="451.0" mnemonicParsing="false" onAction="#guardarProveedor" text="Guardar" />
+                        <Label fx:id="lblMensajesProv" layoutX="14.0" layoutY="199.0" prefHeight="27.0" prefWidth="605.0" textFill="#fa0202">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="880.0" layoutY="80.0" text="Nombre" />
+                        <Label fx:id="lblMensajeRutProv" layoutX="1030.0" layoutY="8.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeNombreProv" layoutX="1030.0" layoutY="64.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeDirProv" layoutX="1030.0" layoutY="118.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeCiudadProv" layoutX="1030.0" layoutY="174.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeEmailProv" layoutX="1030.0" layoutY="283.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeEstadoProv" layoutX="1030.0" layoutY="386.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeTelefProv" layoutX="1030.0" layoutY="228.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="880.0" layoutY="352.0" text="Tipo de Productos" />
+                        <ComboBox fx:id="cbTipos" disable="true" layoutX="1031.0" layoutY="352.0" prefHeight="31.0" prefWidth="264.0" promptText="Seleccionar" />
+                        <Label fx:id="lblMensajeTipoProv" layoutX="1030.0" layoutY="335.0" prefHeight="19.0" prefWidth="265.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button fx:id="btnMenuPrincipal" layoutX="1200.0" layoutY="626.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="40.0" prefWidth="128.0" text="Menú Principal">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

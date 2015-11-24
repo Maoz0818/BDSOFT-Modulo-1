@@ -10,22 +10,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
 public class MenuGerenteController implements Initializable {
-    @FXML
-    private Button btnGestionDeUsuarios;
-    @FXML
-    private Button btnOrdenesDeCompra;
-    @FXML
-    private Button btnCambioDeClave;
-    @FXML
-    private Button btnCerrarSesion;
-
-    
+      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -46,6 +36,26 @@ public class MenuGerenteController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.centerOnScreen();
             primaryStage.setTitle("Gestion de Usuarios");
+            primaryStage.show();
+                                
+            } catch (IOException e) {}
+    }
+    
+    @FXML
+    private void ingresoGestionDeProveedores(ActionEvent event) {
+            try {
+            //Cargamos la scene
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Principal.class.getResource("GestionDeProveedores.fxml"));
+            AnchorPane Gerente = (AnchorPane) loader.load();
+
+            //Agregamos a la ventana
+            Scene scene = new Scene(Gerente);
+            Node node = (Node) event.getSource();
+            Stage primaryStage = (Stage) node.getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+            primaryStage.setTitle("Gestion de Proveedores");
             primaryStage.show();
                                 
             } catch (IOException e) {}
