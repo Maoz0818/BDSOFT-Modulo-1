@@ -33,7 +33,7 @@
             <Image url="@../CSS/inventario.png" />
          </image>
       </ImageView>
-      <Label layoutX="450.0" layoutY="22.0" text="Catálogo" textFill="#f8f4f4">
+      <Label layoutX="445.0" layoutY="22.0" text="Inventario" textFill="#f8f4f4">
          <font>
             <Font name="System Italic" size="42.0" />
          </font>
@@ -43,7 +43,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnMostrarInventario" layoutX="268.0" layoutY="509.0" mnemonicParsing="false" onAction="#mostrarInventario" prefHeight="40.0" prefWidth="280.0" text="Mostrar Catálogo">
+      <Button fx:id="btnMostrarInventario" layoutX="268.0" layoutY="509.0" mnemonicParsing="false" onAction="#mostrarInventario" prefHeight="40.0" prefWidth="280.0" text="Mostrar Inventario">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

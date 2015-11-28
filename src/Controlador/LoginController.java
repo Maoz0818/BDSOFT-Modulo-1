@@ -110,6 +110,7 @@ public class LoginController implements Initializable {
                                 Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
                                 primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Gerente");
                                 primaryStage.show();
                     
                                 } catch (IOException e) {}
@@ -128,6 +129,7 @@ public class LoginController implements Initializable {
                                 Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
                                 primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Jefe de Bodega");
                                 primaryStage.show();
                                 
                                 } catch (IOException e) {}
@@ -146,6 +148,7 @@ public class LoginController implements Initializable {
                                 Stage primaryStage = (Stage) node.getScene().getWindow();
                                 primaryStage.setScene(scene);
                                 primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Jefe de Sucursal");
                                 primaryStage.show();
                                 
                                 } catch (IOException e) {}
