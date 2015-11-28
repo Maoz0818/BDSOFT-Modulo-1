@@ -59,7 +59,7 @@
                         <TextField fx:id="txtEmailProveedor" editable="false" layoutX="1030.0" layoutY="300.0" prefHeight="31.0" prefWidth="264.0" />
                         <RadioButton fx:id="rbEstadoActivoProv" disable="true" layoutX="1053.0" layoutY="404.0" mnemonicParsing="false" onAction="#selecProvActivo" text="Activo" />
                         <RadioButton fx:id="rbEstadoInactivoProv" disable="true" layoutX="1170.0" layoutY="404.0" mnemonicParsing="false" onAction="#selecProvInactivo" text="Inactivo" />
-                        <Button fx:id="btnNuevoProveedor" disable="true" layoutX="890.0" layoutY="451.0" mnemonicParsing="false" onAction="#nuevoProveedor" prefHeight="31.0" prefWidth="135.0" text="Nuevo Usuario" />
+                        <Button fx:id="btnNuevoProveedor" disable="true" layoutX="890.0" layoutY="451.0" mnemonicParsing="false" onAction="#nuevoProveedor" prefHeight="31.0" prefWidth="136.0" text="Nuevo Proveedor" />
                         <Button fx:id="btnModificarProveedor" disable="true" layoutX="1080.0" layoutY="451.0" mnemonicParsing="false" onAction="#modificarProveedor" text="Modificar" />
                         <Button fx:id="btnGuardarProveedor" disable="true" layoutX="1221.0" layoutY="451.0" mnemonicParsing="false" onAction="#guardarProveedor" text="Guardar" />
                         <Label fx:id="lblMensajesProv" layoutX="14.0" layoutY="199.0" prefHeight="27.0" prefWidth="605.0" textFill="#fa0202">

@@ -4,8 +4,8 @@ package Logica;
 
 public class Proveedores {
     
-    private Integer rut;  
-    private Integer telefono;
+    private String rut;  
+    private String telefono;
     private String nombre;     
     private String ciudad;
     private String direccion;
@@ -16,7 +16,7 @@ public class Proveedores {
     public Proveedores() {
     }
 
-    public Proveedores(Integer rut, Integer telefono, String nombre, String ciudad, String direccion, String eMail,String tipo, Integer estado) {
+    public Proveedores(String rut, String telefono, String nombre, String ciudad, String direccion, String eMail,String tipo, Integer estado) {
         this.rut = rut;
         this.telefono = telefono;
         this.nombre = nombre;
@@ -27,19 +27,19 @@ public class Proveedores {
         this.estado = estado;
     }
 
-    public Integer getRut() {
+    public String getRut() {
         return rut;
     }
 
-    public void setRut(Integer rut) {
+    public void setRut(String rut) {
         this.rut = rut;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

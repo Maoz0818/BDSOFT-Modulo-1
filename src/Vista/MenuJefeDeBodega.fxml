@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="721.0" styleClass="fondox" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MenuJefeDeBodegaController">
    <children>
       <Pane layoutX="97.0" layoutY="102.0" prefHeight="340.0" prefWidth="590.0" styleClass="fondo_azul">
@@ -16,7 +15,7 @@
                   <Font name="System Italic" size="28.0" />
                </font>
             </Label>
-            <Button fx:id="btnCambioDeClave" layoutX="119.0" layoutY="237.0" mnemonicParsing="false" onAction="#ingresoCambioDeClave" prefHeight="50.0" prefWidth="227.0" text="Cambio de Clave">
+            <Button fx:id="btnCambioDeClave" layoutX="119.0" layoutY="237.0" mnemonicParsing="false" onAction="#ingresoCambioDeClave" prefHeight="50.0" prefWidth="235.0" text="Cambio de Clave            ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -33,6 +32,30 @@
                   <Image url="@../CSS/JefeDeBodega.png" />
                </image>
             </ImageView>
+            <Button fx:id="btnGestionDeProductos" layoutX="119.0" layoutY="101.0" mnemonicParsing="false" onAction="#ingresoGestionDeProductos" prefHeight="50.0" prefWidth="235.0" text="Gestion de Productos    ">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../CSS/cargo1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnInventarioDeProductos" layoutX="119.0" layoutY="170.0" mnemonicParsing="false" onAction="#ingresoInventarioDeProductos" prefHeight="50.0" prefWidth="235.0" text="Inventario de Productos">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../CSS/inventario.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
       <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="95.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">

@@ -46,7 +46,6 @@ public class GestionDeUsuariosController implements Initializable {
     @FXML    private TextField txtBuscarSucPorNombre;
     @FXML    private RadioButton rbBuscarSucPorCodigo;
     @FXML    private TextField txtBuscarSucPorCodigo;
-    @FXML    private Button btnLimpiarBusquedaSuc;
     @FXML    private Button btnBuscarSuc;
     @FXML    private TableView tblMostrarSucursales;
     @FXML    private TextField txtNombreJefeSuc;
@@ -74,7 +73,6 @@ public class GestionDeUsuariosController implements Initializable {
     @FXML    private TextField txtBuscarEmpPorNombre;
     @FXML    private RadioButton rbBuscarEmpPorCodigo;
     @FXML    private TextField txtBuscarEmpPorCodigo;
-    @FXML    private Button btnLimpiarBusquedaEmp;
     @FXML    private Button btnBuscarEmp;
     @FXML    private TableView tblMostrarUsuarioEmp;
     @FXML    private Label lblMensajeBd;
@@ -95,12 +93,9 @@ public class GestionDeUsuariosController implements Initializable {
     @FXML    private Label lblMensajeTelefonoEmp;
     @FXML    private Label lblMensajeEmailEmp;
     @FXML    private Label lblMensajeEstadoEmp;
-    @FXML    private Button btnMenuPrincipal;
     @FXML    private TableColumn col;
     
     private int jefeId;
-    
-    private int cargoEmp;
     
     private int estadoUsuario;
     
@@ -141,7 +136,8 @@ public class GestionDeUsuariosController implements Initializable {
         rbBuscarSucPorNombre.setSelected(false);
         rbBuscarSucPorCodigo.setSelected(false);
         lblMensajesSuc.setText("");
-        
+        limpiarCamposSuc();
+        limpiarMensajesSuc();
     }
     
     // METODO ENCARGADO DE BUSCAR USUARIO SUCURSAL
@@ -624,6 +620,8 @@ public class GestionDeUsuariosController implements Initializable {
         rbBuscarEmpPorNombre.setSelected(false);
         rbBuscarEmpPorCodigo.setSelected(false);
         lblMensajeBd.setText("");
+        limpiarCamposEmp();
+        limpiarMensajesEmp();
     }
     
     // METODO ENCARGADO DE BUSCAR UN EMPLEADO 

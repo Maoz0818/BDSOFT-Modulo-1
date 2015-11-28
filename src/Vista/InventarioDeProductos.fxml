@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="562.0" prefWidth="815.0" styleClass="fondo_azul" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.InventarioDeProductosController">
+   <children>
+      <TabPane layoutX="8.0" layoutY="83.0" prefHeight="417.0" prefWidth="800.0" styleClass="paneles" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Catálogo de Productos">
+               <content>
+                  <Pane prefHeight="376.0" prefWidth="796.0">
+                     <children>
+                        <TableView fx:id="tblMostrarInventarioDeProductos" layoutX="4.0" layoutY="14.0" prefHeight="361.0" prefWidth="791.0" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="9.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="70.0" layoutX="632.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/inventario.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="450.0" layoutY="22.0" text="Catálogo" textFill="#f8f4f4">
+         <font>
+            <Font name="System Italic" size="42.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnMenuPrincipal" layoutX="679.0" layoutY="509.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="40.0" prefWidth="128.0" text="Menu Principal">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnMostrarInventario" layoutX="268.0" layoutY="509.0" mnemonicParsing="false" onAction="#mostrarInventario" prefHeight="40.0" prefWidth="280.0" text="Mostrar Catálogo">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

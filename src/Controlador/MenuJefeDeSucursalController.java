@@ -46,6 +46,26 @@ public class MenuJefeDeSucursalController implements Initializable {
                     
             } catch (IOException e) {}
     }
+    
+    @FXML
+    private void ingresoInventarioDeProductos(ActionEvent event) {
+        try {
+            //Cargamos la scene
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Principal.class.getResource("InventarioDeProductos.fxml"));
+            AnchorPane Gerente = (AnchorPane) loader.load();
+
+            //Agregamos a la ventana
+            Scene scene = new Scene(Gerente);
+            Node node = (Node) event.getSource();
+            Stage primaryStage = (Stage) node.getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+            primaryStage.setTitle("Inventario Jefe de Sucursal");
+            primaryStage.show();
+                    
+            } catch (IOException e) {}
+    }
 
     @FXML
     private void cerrarSesion(ActionEvent event) {

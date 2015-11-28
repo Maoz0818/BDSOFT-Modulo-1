@@ -15,7 +15,7 @@ public class Existencias extends Productos{
         this.ubicacion = ubicacion;
         this.proveedor = proveedor;
     }
-
+      
     public int getCantidad() {
         return cantidad;
     }

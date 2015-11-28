@@ -6,13 +6,13 @@ public class Productos {
     private int codigo;
     private int tipo;
     private String nombre;  
-    private int precio; 
+    private double precio; 
     private String marca;
 
     public Productos() {
     }
 
-    public Productos(int codigo, int tipo, String nombre, int precio, String marca){
+    public Productos(int codigo, int tipo, String nombre, double precio, String marca){
         this.codigo = codigo;
         this.tipo = tipo;
         this.nombre = nombre;
@@ -32,7 +32,7 @@ public class Productos {
         return nombre;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -52,7 +52,7 @@ public class Productos {
         this.nombre = nombre;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

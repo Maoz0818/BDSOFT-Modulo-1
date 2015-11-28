@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1343.0" styleClass="fondo_azul" stylesheets="@../CSS/estilo1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.GestionDeProductosController">
+   <children>
+      <ImageView fitHeight="79.0" fitWidth="200.0" layoutX="7.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="70.0" layoutX="1255.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../CSS/cargo1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="860.0" layoutY="22.0" text="Gestión de Productos" textFill="#f8f4f4">
+         <font>
+            <Font name="System Italic" size="42.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="78.0" prefHeight="537.0" prefWidth="1315.0" styleClass="paneles" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Productos">
+               <content>
+                  <Pane prefHeight="498.0" prefWidth="1361.0" styleClass="paneles">
+                     <children>
+                        <Separator layoutX="858.0" orientation="VERTICAL" prefHeight="520.0" prefWidth="8.0">
+                           <effect>
+                              <InnerShadow color="#908888" />
+                           </effect>
+                        </Separator>
+                        <Label layoutX="14.0" layoutY="21.0" text="Busqueda de Productor" />
+                        <RadioButton fx:id="rbBuscarProdPorCodigo" layoutX="47.0" layoutY="61.0" mnemonicParsing="false" onAction="#selecBuscarProdPorCodigo" text="Codigo de Producto" />
+                        <TextField fx:id="txtBuscarProdPorCodigo" editable="false" layoutX="236.0" layoutY="56.0" prefHeight="31.0" prefWidth="371.0" />
+                        <RadioButton fx:id="rbBuscarProdPorNombre" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" onAction="#selecBuscarProdPorNombre" text="Nombre del Producto" />
+                        <TextField fx:id="txtBuscarProdPorNombre" editable="false" layoutX="236.0" layoutY="104.0" prefHeight="31.0" prefWidth="371.0" />
+                        <Button fx:id="btnLimpiarBusquedaProducto" layoutX="468.0" layoutY="152.0" mnemonicParsing="false" onAction="#limpiarBusquedaProducto" text="Limpiar Busqueda" />
+                        <Button fx:id="btnBuscarProducto" disable="true" layoutX="379.0" layoutY="152.0" mnemonicParsing="false" onAction="#buscarProducto" text="Buscar" />
+                        <TableView fx:id="tblMostrarProductos" layoutX="10.0" layoutY="247.0" onMouseClicked="#getProductoSeleccionado" prefHeight="232.0" prefWidth="840.0" />
+                        <Label layoutX="880.0" layoutY="25.0" text="Nombre" />
+                        <Label layoutX="880.0" layoutY="135.0" text="Sección" />
+                        <Label layoutX="880.0" layoutY="190.0" text="Proveedor" />
+                        <Label layoutX="880.0" layoutY="248.0" text="Marca" />
+                        <Label layoutX="880.0" layoutY="300.0" text="Precio" />
+                        <TextField fx:id="txtNombreProducto" editable="false" layoutX="1030.0" layoutY="25.0" prefHeight="31.0" prefWidth="265.0" />
+                        <TextField fx:id="txtMarcaProducto" editable="false" layoutX="1030.0" layoutY="245.0" prefHeight="31.0" prefWidth="264.0" />
+                        <TextField fx:id="txtPrecioProducto" editable="false" layoutX="1030.0" layoutY="300.0" prefHeight="31.0" prefWidth="264.0" />
+                        <Button fx:id="btnNuevoProducto" disable="true" layoutX="890.0" layoutY="432.0" mnemonicParsing="false" onAction="#nuevoProducto" prefHeight="31.0" prefWidth="135.0" text="Nuevo Producto" />
+                        <Button fx:id="btnModificarProducto" disable="true" layoutX="1080.0" layoutY="432.0" mnemonicParsing="false" onAction="#modificarExistencia" text="Modificar" />
+                        <Button fx:id="btnGuardarProducto" disable="true" layoutX="1221.0" layoutY="432.0" mnemonicParsing="false" onAction="#guardarExistencia" text="Guardar" />
+                        <Label fx:id="lblMensajesProdu" layoutX="14.0" layoutY="199.0" prefHeight="27.0" prefWidth="605.0" textFill="#fa0202">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="880.0" layoutY="80.0" text="Tipo" />
+                        <Label fx:id="lblMensajeNomProdu" layoutX="1030.0" layoutY="8.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeTipoProdu" layoutX="1030.0" layoutY="64.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeSeccProdu" layoutX="1030.0" layoutY="118.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeProveProdu" layoutX="1030.0" layoutY="174.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajePrecioProdu" layoutX="1030.0" layoutY="283.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMensajeMarcaProdu" layoutX="1030.0" layoutY="228.0" prefHeight="19.0" prefWidth="264.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="880.0" layoutY="352.0" text="Cantidad" />
+                        <Label fx:id="lblMensajeCantProdu" layoutX="1030.0" layoutY="335.0" prefHeight="19.0" prefWidth="265.0" textFill="#f70505">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbTipo" disable="true" layoutX="1030.0" layoutY="80.0" prefHeight="31.0" prefWidth="265.0" promptText="Seleccionar" />
+                        <ComboBox fx:id="cbSeccion" disable="true" layoutX="1030.0" layoutY="135.0" prefHeight="31.0" prefWidth="265.0" promptText="Seleccionar" />
+                        <ComboBox fx:id="cbProveedor" disable="true" layoutX="1030.0" layoutY="190.0" prefHeight="31.0" prefWidth="265.0" promptText="Seleccionar" />
+                        <TextField fx:id="txtCantidadProducto" layoutX="1030.0" layoutY="352.0" prefHeight="31.0" prefWidth="264.0" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button fx:id="btnMenuPrincipal" layoutX="1200.0" layoutY="626.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="40.0" prefWidth="128.0" text="Menú Principal">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

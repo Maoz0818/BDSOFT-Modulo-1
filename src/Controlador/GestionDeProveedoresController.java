@@ -82,6 +82,7 @@ public class GestionDeProveedoresController implements Initializable {
     private final Validaciones validacion = new Validaciones();
     //Objeto DAO
     private final ProveedorDao proveedorDao = new ProveedorDao();
+    
     private final TipoDao tipoDao = new TipoDao();
     
     @Override
@@ -102,7 +103,7 @@ public class GestionDeProveedoresController implements Initializable {
         }
         
     }    
-    
+    // METODO ENCARGADO DE LIMPIAR LA BUSQUEDA DE PROVEEDORES
      @FXML
     private void limpiarBusquedaProv(ActionEvent event) {
         
@@ -117,8 +118,11 @@ public class GestionDeProveedoresController implements Initializable {
         rbBuscarProvPorNombre.setSelected(false);
         rbBuscarProvPorRut.setSelected(false);
         lblMensajesProv.setText("");
+        limpiarCamposProv();
+        limpiarMensajesProv();
     }
-
+    
+    // METODO ENCARGADO DE REALIZAR LA BUSQUEDA DEL PROVEEDOR SEGUN EL FILTRO INGRESADO
     @FXML
     private void buscarProv(ActionEvent event) throws SQLException {
                
@@ -322,7 +326,7 @@ public class GestionDeProveedoresController implements Initializable {
         btnBuscarProv.setDisable(false);
     }
     
-     // METODO ENCARGADO DE CARGAR LOS DATOS AL FORMULARIO PROVEEDORES SEGUN EL ITEM SELECCIONADO
+    // METODO ENCARGADO DE CARGAR LOS DATOS AL FORMULARIO PROVEEDORES SEGUN EL ITEM SELECCIONADO
     private void cargarDatosProveedorAlFormulario(String dato){
         
         ResultSet cargaDatosParaFormularioProveedor = proveedorDao.datosParaFormulario(dato);
@@ -469,10 +473,10 @@ public class GestionDeProveedoresController implements Initializable {
         }
         
         String nombre = txtNombreProveedor.getText();
-        Integer rut = Integer.parseInt(txtRutProveedor.getText());
+        String rut = txtRutProveedor.getText();
         String direccion = txtDireccionProveedor.getText();
         String ciudad = txtCiudadProveedor.getText();
-        Integer telefono = Integer.parseInt(txtTelefonoProveedor.getText());
+        String telefono = txtTelefonoProveedor.getText();
         String e_mail = txtEmailProveedor.getText();
         String tipo = (String) cbTipos.getSelectionModel().getSelectedItem();
         
@@ -498,7 +502,7 @@ public class GestionDeProveedoresController implements Initializable {
         PreparedStatement estado = proveedorDao.modificarProveedor(modificarProveedor, codigoProveedor);
         
             try {
-                int n = estado.executeUpdate();
+                estado.executeUpdate();
                 JOptionPane.showMessageDialog(null,"Usuario modificado exitosamente");
                 estado.close();
             }catch (SQLException e) {
@@ -588,10 +592,10 @@ public class GestionDeProveedoresController implements Initializable {
         }
         
         String nombre = txtNombreProveedor.getText();
-        Integer rut = Integer.parseInt(txtRutProveedor.getText());
+        String rut = txtRutProveedor.getText();
         String direccion = txtDireccionProveedor.getText();
         String ciudad = txtCiudadProveedor.getText();
-        Integer telefono = Integer.parseInt(txtTelefonoProveedor.getText());
+        String telefono = txtTelefonoProveedor.getText();
         String e_mail = txtEmailProveedor.getText();
         String tipo = (String) cbTipos.getSelectionModel().getSelectedItem();
         estadoProveedor = 1;        
@@ -610,7 +614,7 @@ public class GestionDeProveedoresController implements Initializable {
         PreparedStatement estado = proveedorDao.nuevoProveedor(nuevoProveedor);
         
             try {
-                int n = estado.executeUpdate();
+                estado.executeUpdate();
                 JOptionPane.showMessageDialog(null,"Proveedor registrado exitosamente");
                 estado.close();
             }catch (SQLException e) {
@@ -674,5 +678,4 @@ public class GestionDeProveedoresController implements Initializable {
         lblMensajeEstadoProv.setText("");
         lblMensajeTipoProv.setText("");
     }
-    
 }

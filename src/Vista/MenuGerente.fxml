@@ -15,7 +15,7 @@
                   <Font name="System Italic" size="28.0" />
                </font>
             </Label>
-            <Button fx:id="btnGestionDeUsuarios" layoutX="119.0" layoutY="76.0" mnemonicParsing="false" onAction="#ingresoGestionDeUsuarios" prefHeight="50.0" prefWidth="233.0" text="Gestion de Usuarios      ">
+            <Button fx:id="btnGestionDeUsuarios" layoutX="119.0" layoutY="76.0" mnemonicParsing="false" onAction="#ingresoGestionDeUsuarios" prefHeight="50.0" prefWidth="240.0" text="Gestion de Usuarios      ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -27,19 +27,19 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnOrdenesDeCompra" disable="true" layoutX="119.0" layoutY="206.0" mnemonicParsing="false" onAction="#ingresoOrdenesDeCompra" prefHeight="50.0" prefWidth="233.0" text="Ordenes de Compra      ">
+            <Button fx:id="btnInventarioDeProductos" layoutX="119.0" layoutY="206.0" mnemonicParsing="false" onAction="#ingresoInventarioDeProductos" prefHeight="50.0" prefWidth="240.0" text="Inventario de Productos">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../CSS/orden%20de%20compra.png" />
+                        <Image url="@../CSS/inventario.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnCambioDeClave" layoutX="119.0" layoutY="271.0" mnemonicParsing="false" onAction="#ingresoCambioDeClave" prefHeight="50.0" prefWidth="233.0" text="Cambio de Clave           ">
+            <Button fx:id="btnCambioDeClave" layoutX="119.0" layoutY="271.0" mnemonicParsing="false" onAction="#ingresoCambioDeClave" prefHeight="50.0" prefWidth="240.0" text="Cambio de Clave           ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -56,7 +56,7 @@
                   <Image url="@../CSS/Gerente.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnGestionDeProveedores" layoutX="119.0" layoutY="141.0" mnemonicParsing="false" onAction="#ingresoGestionDeProveedores" prefHeight="50.0" prefWidth="233.0" text="Gestion de Proveedores">
+            <Button fx:id="btnGestionDeProveedores" layoutX="119.0" layoutY="141.0" mnemonicParsing="false" onAction="#ingresoGestionDeProveedores" prefHeight="50.0" prefWidth="240.0" text="Gestion de Proveedores">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
