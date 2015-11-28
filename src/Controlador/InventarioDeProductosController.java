@@ -234,22 +234,62 @@ public class InventarioDeProductosController implements Initializable {
 
     @FXML
     private void volverMenuPrincipal(ActionEvent event) {
-        try {
-            //Cargamos la scene
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Principal.class.getResource("MenuGerente.fxml"));
-            AnchorPane Gerente = (AnchorPane) loader.load();
+        Node node = (Node) event.getSource();
+        Stage primaryStage = (Stage) node.getScene().getWindow();
+        cargo = primaryStage.getTitle();
+        
+        switch(cargo){
+                    case "Inventario Gerente":
+                                try {
+                                //Cargamos la scene
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(Principal.class.getResource("MenuGerente.fxml"));
+                                AnchorPane Gerente = (AnchorPane) loader.load();
 
-            //Agregamos a la ventana
-            Scene scene = new Scene(Gerente);
-            Node node = (Node) event.getSource();
-            Stage primaryStage = (Stage) node.getScene().getWindow();
-            primaryStage.setScene(scene);
-            primaryStage.centerOnScreen();
-            primaryStage.setTitle("Menu Gerente");
-            primaryStage.show();
+                                //Agregamos a la ventana
+                                Scene scene = new Scene(Gerente);
+                                primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Gerente");
+                                primaryStage.show();
                     
-            } catch (IOException e) {}
+                                } catch (IOException e) {}
+                        break;
+                        
+                        case "Inventario Jefe de Bodega":
+                                try {
+                                //Cargamos la scene
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(Principal.class.getResource("MenuJefeDeBodega.fxml"));
+                                AnchorPane JefeBodega = (AnchorPane) loader.load();
+                                
+                                //Agregamos a la ventana
+                                Scene scene = new Scene(JefeBodega);
+                                primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Jefe de Bodega");
+                                primaryStage.show();
+                                
+                                } catch (IOException e) {}
+                        break;
+                            
+                        case "Inventario Jefe de Sucursal":
+                                try {
+                                //Cargamos la scene
+                                FXMLLoader loader = new FXMLLoader();
+                                loader.setLocation(Principal.class.getResource("MenuJefeDeSucursal.fxml"));
+                                AnchorPane JefeSucursal = (AnchorPane) loader.load();
+                                
+                                //Agregamos a la ventana
+                                Scene scene = new Scene(JefeSucursal);
+                                primaryStage.setScene(scene);
+                                primaryStage.centerOnScreen();
+                                primaryStage.setTitle("Menu Jefe de Sucursal");
+                                primaryStage.show();
+                                
+                                } catch (IOException e) {}
+                        break;
+                }
     }
     
     @FXML
